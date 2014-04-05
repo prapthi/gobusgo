@@ -1,0 +1,120 @@
+/*table{
+width:950px;
+height:830px;
+/*background-color:#FFFFFF;
+text-align: center; 
+}
+th {
+
+background:#000000;
+color: #FFF;
+border: 1px black solid;
+
+
+}
+tr:nth-child(odd)		{ background-color:#eee; }
+tr:nth-child(even)		{ background-color:#fff; }*/
+
+
+table.tablesorter {
+width:950px;
+ height: auto;
+/*background-color: #CDCDCD;
+border: 1px solid #D0D0D0;*/
+color: #002166;
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+
+}
+table.tablesorter th  {
+	
+color: #FFF;
+background:#000000;
+border: 1px black solid;
+}
+/tr:nth-child(odd)		{ background-color:#eee; }
+/tr:nth-child(even)		{ background-color:#fff; }
+
+/*table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	border: 1px solid #FFF;
+	
+	/*padding: 4px;
+}*/
+table.tablesorter thead tr .header {
+	background-image:url(../images/full.gif);
+	
+	background-repeat: no-repeat;
+	background-position: center right;
+	background-position: 87% 52%;
+	cursor: pointer;
+	height:56px;
+}
+table.tablesorter tbody td {
+	/*color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFF;*/
+	vertical-align: top;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#eee; 
+}
+table.tablesorter tbody tr.even td {
+	background-color:#fff; 
+}
+
+table.tablesorter thead tr .headerSortUp {
+	background-image:url(../images/bottom.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image:url(../images/top.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+
+color:white;
+}
+
+.button2 {
+	background-color: #3399FF;
+    background-size: 100% 100%;
+    border: medium none;
+    border-radius: 25px;
+    display: inline-block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px !important;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none !important;
+    width: 90px;
+	cursor: pointer;
+}
+.blue {
+	background-color:#244255;
+	border: 2px solid #000000 !important;
+	color: #FFFFFF;
+	font-size: 16px;
+	font-weight: bold;
+	text-shadow: 1px 1px 2px #666666;
+}
+
+a.tip {
+    position: relative;
+}
+a.tip span {
+    background: none repeat scroll 0 0 #686868;
+    border-radius: 5px;
+    color: #FFFFFF;
+    display: none;
+   	padding: 5px;
+    position: absolute;
+    top: 25px;
+    width: 300px;
+    z-index: 100;
+}
+
+a:hover.tip {
+    font-size: 99%; /* this is just for IE */
+}
+
+a:hover.tip span {
+    display: block;
+}

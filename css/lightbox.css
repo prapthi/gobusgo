@@ -1,0 +1,83 @@
+.left_box {
+	background: none repeat scroll 0 0 #EEEEEE;
+	border: 1px solid #CCCCCC;
+	border-radius: 6px;
+	margin: 10px;
+	min-height: 272px;
+	/*padding: 10px;
+	width: 43% !important;*/
+}
+
+.right_box {
+	background: none repeat scroll 0 0 #EEEEEE;
+	border: 1px solid #CCCCCC;
+	border-radius: 6px;
+	margin: 10px;
+	min-height: 272px;
+	/*padding: 10px;
+	width: 43% !important;*/
+}
+
+.guest_panel > li {
+	padding:20px;
+}
+.login_panel > li {
+	padding:18px;
+	
+}
+
+.button2 {
+    background-size: 100% 100%;
+    border: medium none;
+    border-radius: 25px;
+    display: inline-block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px !important;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none !important;
+    width: 90px;
+	cursor: pointer;
+}
+.dark_gray {
+    background-color: #464745;
+    border: 2px solid #464745 !important;
+    color: #FFFFFF !important;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #666666;
+}
+.ovrlaytxt{ 
+	border-radius: 8px;
+	height: 24px;
+	width: 200px !important;
+}
+
+.black_overlay{
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index:1001;
+	-moz-opacity: 0.8;
+	opacity:0.55;
+	/*filter: alpha(opacity=80);*/
+}
+		
+		
+.white_content {
+	display: none;
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 42%;
+	height: 39%;
+	padding: 16px;
+	border: 16px solid #738BA7;
+	border-radius:22px;
+	background-color: white;
+	z-index:1002;
+	overflow: auto;
+}
