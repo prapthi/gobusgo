@@ -60,6 +60,7 @@ include('header.php');
 					<iframe width="100%" height="380" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Dhanvantri+Nagar,+Gorimedu,+Puducherry,+Puducherry+UT+605006+&amp;aq=&amp;sll=11.95843,79.808722&amp;sspn=0.031908,0.038581&amp;ie=UTF8&amp;hq=Dhanvantri+Nagar,+Gorimedu,+Puducherry,+Puducherry+UT+605006&amp;hnear=&amp;radius=15000&amp;t=m&amp;ll=11.949882,79.800261&amp;spn=0.071946,0.071946&amp;output=embed"></iframe>
 				</div>
 	</div>
+	<div style="clear:both"></div>
 </div>
 <?php
 include('footer.php');

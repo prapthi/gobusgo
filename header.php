@@ -32,14 +32,13 @@
      </form>
 	
 	</div>
-
 		<div class="main">
 			<div class="header">
 				<div class="logo">
 				<img src="images/logo.png" alt="">
 				</div>
 				<div class="icon">
-				<div>
+				     <div>
 				     <a href="signin.php">Signin</a>|<a href="signup.php">Signup</a></div>
 					<span>Ride with us:</span>
 					<a href=""><img src="images/f-icon.png" alt=""></a>
