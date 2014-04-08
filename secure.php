@@ -108,16 +108,7 @@ if($failCode=='200' && $bookingId){
 $result = mysql_query("INSERT INTO $tbl_name(cust_book_id,contact_name,pass_name,address,country, state ,city, pin_code,mobile,email,fromStation,
 toStation,journey_date, scheduleId, provider,bus_type,boarding_name, bookingId,noOfSeats, netprice, totalFare, Bookingstatus)VALUES('$cust_book_id', '$contactname', '$pass_name', '$address', '$country', '$state' ,'$city', '$pincode', '$phone', '$email', '$origname', '$destiname','$joudate', '$scheduleId', '$provider', '$type', '$boardame', '$bookingId', '$totalSeats', '$netprice','$TotalSeatPrice' , '$Bookingstatus')");
 }else{
-    print "testelse";
-    
-echo '<script type="text/javascript">
-
-window.location = "http://www.gobusgo.in/getTripListV2.php"
-
-</script>';
-    
-
-    //header("Location: getTripListV2.php");
+   header("Location: getTripListV2.php");
     exit();
 }
 }
