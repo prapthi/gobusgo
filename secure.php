@@ -8,9 +8,7 @@ session_start();
 ?>
 
 <?php
-print "<pre>";
-print_r($_POST);
-print "</pre>";
+
 function object_2_array($_POST)
 {
     $array = array();
