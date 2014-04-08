@@ -15,9 +15,6 @@ $return_url= "http://www.gobusgo.in/response.php?DR=GBG";
 
 $hash = "ebskey"."|".$accountId."|".$amount."|".$reference_no."|".$return_url."|".$mode;
 
-print "<pre>";
-print_r($_POST);
-print "</pre>";
 
 //$hash = "4298621700f925bb4e7ea46cee128f12"."|"."14384"."|"."480"."|"."45454545"."|"."http://localhost/gobusgo/response.php?DR=J4"."|".$mode;
 
