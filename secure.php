@@ -15,60 +15,12 @@ $return_url= "http://www.gobusgo.in/response.php?DR=GBG";
 
 $hash = "ebskey"."|".$accountId."|".$amount."|".$reference_no."|".$return_url."|".$mode;
 
+print "<pre>";
+print_r($_POST);
+print "</pre>";
 
-//$hash = "4298621700f925bb4e7ea46cee128f12"."|"."14384"."|"."480"."|"."45454545"."|"."http://localhost/gobusgo/response.php?DR=J4"."|".$mode;
 
-$secure_hash = md5($hash);
 
-$name= $_POST['contactname'];
-$address= $_POST['address'];
-$country= $_POST['country'];
-$state= $_POST['state'];
-$city= $_POST['city'];
-$code = $_POST['pincode'];
-$email= $_POST['email'];
-$phone= $_POST['phone'];
-//$scheduleId= $_POST['scheduleId'];
-
-$description= "Seats";
-$submit = $_POST['continuebooking'];
-
-if($submit= "Continue Booking"){
-$originid = $_SESSION['originid'];
-$destiid = $_SESSION['destiid'];
-$scheduleId = $_SESSION['scheduleId'];
-$depart = $_SESSION['depart'];
-$repdate = str_replace('/', '-', $depart);
-$joudate =date('Y-m-d', strtotime($repdate));
-
-$boardid= $_POST['boardid'];
-$email= $_POST['email'];
-$phone= $_POST['phone'];
-$city= $_POST['city'];
-$addr= $_POST['address'];
-$address = addslashes($addr);
-$state= $_POST['state'];
-$country= $_POST['country'];
-$contactname= $_POST['contactname'];
-$origname= $_POST['origname'];
-$destiname= $_POST['destiname'];
-$provider= $_POST['provider'];
-$type= $_POST['type'];
-$boardame= $_POST['boardame'];
-
-$seatsNbr= $_POST['seats'];
-
-$totalSeats= $_POST['totalSeats'];
-$netprice= $_POST['netprice'];
-
-$pincode = $_POST['pincode'];
-$netprice= $_POST['netprice'];
-$TotalSeatPrice= $_POST['TotalSeatPrice'];
-$Bookingstatus= "Booked";
-$tbl_name="gobusgo_passdetails";
-$gobusgo = "GB";
-$rand = mt_rand(10000000,999999999);
-$cust_book_id = $gobusgo .$rand;
 ?>
 
 <div class="section bookno">
