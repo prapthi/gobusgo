@@ -93,18 +93,21 @@ $passDetailsArray[] = $passdetails;
 }
 
 $blockseats=$client->blockSeatsForBooking($username,$password,$scheduleId,$depart,$originid,$destiid,$boardid,$email,$phone,$address,$passDetailsArray);
-print_r(blockseats);
+print_r($blockseats);
 echo $bookingId= $blockseats->bookingId;
 $_SESSION['bookingId']=$bookingId;
 $cancellationDescList= $blockseats->cancellationDescList;
 $expireTime= $blockseats->expireTime;
 $status= $blockseats->status;
 echo $failCode= $status->code;
+
 if($failCode=='200' && $bookingId){	
+     print "testif"; exit();
 $result = mysql_query("INSERT INTO $tbl_name(cust_book_id,contact_name,pass_name,address,country, state ,city, pin_code,mobile,email,fromStation,
 toStation,journey_date, scheduleId, provider,bus_type,boarding_name, bookingId,noOfSeats, netprice, totalFare, Bookingstatus)VALUES('$cust_book_id', '$contactname', '$pass_name', '$address', '$country', '$state' ,'$city', '$pincode', '$phone', '$email', '$origname', '$destiname','$joudate', '$scheduleId', '$provider', '$type', '$boardame', '$bookingId', '$totalSeats', '$netprice','$TotalSeatPrice' , '$Bookingstatus')");
 }else{
-header("Location:getTripListV2.php");
+    print "testelse"; exit(); 
+    header("Location:getTripListV2.php");
 }
 }
 ?>
