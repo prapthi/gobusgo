@@ -2,7 +2,7 @@
 
 function object_2_array($_POST)
 {
-  print_r($_POST);
+  
     $array = array();
     foreach ($_POST as $key=>$value)
     {
@@ -21,6 +21,11 @@ function object_2_array($_POST)
     }
     return $array;
 }
+
+$detlist =object_2_array($_POST);
+
+print_r($detlist);
+
 ?>
 
 
