@@ -110,6 +110,7 @@ toStation,journey_date, scheduleId, provider,bus_type,boarding_name, bookingId,n
 }else{
     print "testelse";
     header("Location: getTripListV2.php");
+    exit();
 }
 }
 ?>
