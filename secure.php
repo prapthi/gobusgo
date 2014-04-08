@@ -74,7 +74,38 @@ $details = array_slice($data_array,0);
 $encodevalue= json_encode($details);
 $list[] = $encodevalue;
 }
+$pass_name= implode($list, ',');
+$parsed = json_decode('['.$pass_name.']');
 
+$passdetails= new stdClass;
+foreach($parsed as $value){
+    $passdetails= new stdClass;
+$name=$value->passname ;
+$age=$value->age;
+$gender=$value->gender;
+$seats=$value->seats;
+$passdetails->age=$age;
+$passdetails->sex=$gender;
+$passdetails->name=$name;
+$passdetails->extraSeatFlagNotFound=true;
+$passdetails->seatNbr=$seats;
+$passDetailsArray[] = $passdetails;
+}
+
+$blockseats=$client->blockSeatsForBooking($username,$password,$scheduleId,$depart,$originid,$destiid,$boardid,$email,$phone,$address,$passDetailsArray);
+print_r(blockseats);
+echo $bookingId= $blockseats->bookingId;
+$_SESSION['bookingId']=$bookingId;
+$cancellationDescList= $blockseats->cancellationDescList;
+$expireTime= $blockseats->expireTime;
+$status= $blockseats->status;
+echo $failCode= $status->code;
+if($failCode=='200' && $bookingId){	
+$result = mysql_query("INSERT INTO $tbl_name(cust_book_id,contact_name,pass_name,address,country, state ,city, pin_code,mobile,email,fromStation,
+toStation,journey_date, scheduleId, provider,bus_type,boarding_name, bookingId,noOfSeats, netprice, totalFare, Bookingstatus)VALUES('$cust_book_id', '$contactname', '$pass_name', '$address', '$country', '$state' ,'$city', '$pincode', '$phone', '$email', '$origname', '$destiname','$joudate', '$scheduleId', '$provider', '$type', '$boardame', '$bookingId', '$totalSeats', '$netprice','$TotalSeatPrice' , '$Bookingstatus')");
+}else{
+header("Location:getTripListV2.php");
+}
 }
 ?>
 
