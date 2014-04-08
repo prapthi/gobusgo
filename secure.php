@@ -2,8 +2,9 @@
 
 
 
-$detlist =object_2_array($_POST);
-print_r($detlist):
+
+print_r($_POST);
+  $detlist =object_2_array($_POST);
 ?>
 
 
