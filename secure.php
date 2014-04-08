@@ -150,3 +150,4 @@ function validate(){
 
 }
 </script>
+<?php ob_flush(); ?>
