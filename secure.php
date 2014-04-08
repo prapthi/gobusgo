@@ -1,3 +1,27 @@
+<?php
+
+function object_2_array($_POST)
+{
+  print_r($_POST);
+    $array = array();
+    foreach ($_POST as $key=>$value)
+    {
+        if (is_object($value))
+        {
+            $array[$key]=object_2_array($value);
+        }
+        elseif (is_array($value))
+        {
+            $array[$key]=object_2_array($value);
+        }
+        else
+        {
+            $array[$key]=$value;
+        }
+    }
+    return $array;
+}
+?>
 
 
 <div class="section bookno">
