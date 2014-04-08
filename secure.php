@@ -6,7 +6,37 @@ include('username.php');
 ob_start();
 session_start();
 ?>
+<?php
+$mode= "TEST";
+$accountId= "5880";
+$amount = $_POST['netprice'];	
+$reference_no= "45454545";
+$return_url= "http://www.gobusgo.in/response.php?DR=GBG";
 
+$hash = "ebskey"."|".$accountId."|".$amount."|".$reference_no."|".$return_url."|".$mode;
+
+print "<pre>";
+print_r($_POST);
+print_r($_SESSION);
+print "</pre>";
+
+//$hash = "4298621700f925bb4e7ea46cee128f12"."|"."14384"."|"."480"."|"."45454545"."|"."http://localhost/gobusgo/response.php?DR=J4"."|".$mode;
+
+$secure_hash = md5($hash);
+
+$name= $_POST['contactname'];
+$address= $_POST['address'];
+$country= $_POST['country'];
+$state= $_POST['state'];
+$city= $_POST['city'];
+$code = $_POST['pincode'];
+$email= $_POST['email'];
+$phone= $_POST['phone'];
+//$scheduleId= $_POST['scheduleId'];
+
+$description= "Seats";
+$submit = $_POST['continuebooking'];
+?>
 
 <div class="section bookno">
 
