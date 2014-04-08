@@ -69,13 +69,6 @@ $tbl_name="gobusgo_passdetails";
 $gobusgo = "GB";
 $rand = mt_rand(10000000,999999999);
 $cust_book_id = $gobusgo .$rand;
-
-print "<pre>";
-print_r($_POST);
-print_r($_SESSION);
-print "</pre>";
-
-
 ?>
 
 <div class="section bookno">
