@@ -1,7 +1,7 @@
 <?php
-print "<pre>";
-print_r($_POST);
-print "</pre>";
+
+
+
 $detlist =object_2_array($_POST);
 print_r($detlist):
 ?>
