@@ -23,17 +23,6 @@ session_start();
 
 <script src="js/datepicker/jquery.min.js"></script>
 <script src="js/datepicker/jquery-ui.min.js"></script>
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
-</script> -->
-<script>
-$(document).ready(function(){
-  $("#msearch").click(function(){
-    $("#modsch").toggle();
-  });
-});
-</script>
-
-
 <script>
 $(document).ready(function() {
 
@@ -95,7 +84,7 @@ $arr=$result5->stationList;
 					Departure :<span class="lispan"><?php echo $date. ' ' .$monthName. ' '. $year;  ?></span>
 				</div>
 				<div class="modsch">
-				<a href="javascript:void(0);" id="msearch" class="deslink"><h4>Modify Your Search</h4></a>
+				<a href="javascript:void(0);" onclick="modify('3')" class="deslink"><h4>Modify Your Search</h4></a>
 				</div>
 			</div><!-- -->
 			
@@ -109,8 +98,8 @@ $arr=$result5->stationList;
 				</div>
 			</div>
 			
-		
-			<div id="modsch" style="display:none;"> 
+			<div id="1" style="display:none;"></div>
+			<div id="3" style="display:none;"> 
 				<form action="busLoad.php" name="findbus" method="post" style="padding-left: 0; padding-top:0; width:auto; height:auto;" >
 					<table> <tr> <td><span class="lispan">From</span>
 						<select id="originid" title="Origin" name="originid" onchange="document.getElementById('orig').value=this.value">
@@ -344,6 +333,56 @@ $(function()
 	});
 </script>
 
+
+<script type="text/javascript">
+function modify(id)
+{		
+var curr_open='';
+if(document.getElementById('curr_open') != null)
+{
+	curr_open=document.getElementById('curr_open').value;
+}
+	   
+if(curr_open != '' && curr_open != id)
+{
+	if(document.getElementById(curr_open) != null)
+	{
+	var subNavDiv = document.getElementById(id);
+	for (var i=1; i<=3; i++)
+	{
+		if(subNavDiv != i)
+		{
+		var x= i;
+		document.getElementById(x).style.display='none';
+		}
+	}
+	document.getElementById(curr_open).style.display='none';
+	}
+}
+	   
+if(document.getElementById(id) != null)
+{
+	if(document.getElementById(id).style.display == 'none')
+	{
+	var subNavDiv = document.getElementById(id);
+	for (var i=1; i<=3; i++)
+	{
+		if(subNavDiv != i)
+		{
+		var x=i;
+		document.getElementById(x).style.display='none';
+		}
+	}
+	document.getElementById(id).style.display='block';
+	}
+	else
+	document.getElementById(id).style.display='none';
+			
+	document.getElementById('curr_open').value=id;
+}
+}
+
+</script>
 
 
 <?php
