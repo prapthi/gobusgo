@@ -23,6 +23,17 @@ session_start();
 
 <script src="js/datepicker/jquery.min.js"></script>
 <script src="js/datepicker/jquery-ui.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+  $("#msearch").click(function(){
+    $("#modsch").toggle();
+  });
+});
+</script>
+
+
 <script>
 $(document).ready(function() {
 
@@ -84,7 +95,7 @@ $arr=$result5->stationList;
 					Departure :<span class="lispan"><?php echo $date. ' ' .$monthName. ' '. $year;  ?></span>
 				</div>
 				<div class="modsch">
-				<a href="javascript:void(0);" onclick="modify('3')" class="deslink"><h4>Modify Your Search</h4></a>
+				<a href="javascript:void(0);" id="msearch" class="deslink"><h4>Modify Your Search</h4></a>
 				</div>
 			</div><!-- -->
 			
@@ -98,8 +109,8 @@ $arr=$result5->stationList;
 				</div>
 			</div>
 			
-			<div id="1" style="display:none;"></div>
-			<div id="3" style="display:none;"> 
+		
+			<div id="modsch" style="display:none;"> 
 				<form action="busLoad.php" name="findbus" method="post" style="padding-left: 0; padding-top:0; width:auto; height:auto;" >
 					<table> <tr> <td><span class="lispan">From</span>
 						<select id="originid" title="Origin" name="originid" onchange="document.getElementById('orig').value=this.value">
