@@ -73,7 +73,39 @@ $tbl_name="gobusgo_passdetails";
 $gobusgo = "GB";
 $rand = mt_rand(10000000,999999999);
 $cust_book_id = $gobusgo .$rand;
+function object_2_array($_POST)
+{
+    $array = array();
+    foreach ($_POST as $key=>$value)
+    {
+        if (is_object($value))
+        {
+            $array[$key]=object_2_array($value);
+        }
+        elseif (is_array($value))
+        {
+            $array[$key]=object_2_array($value);
+        }
+        else
+        {
+            $array[$key]=$value;
+        }
+    }
+    return $array;
+}
+$detlist =object_2_array($_POST);
 
+for($i=0;$i<$totalSeats;$i++){
+$data_array['passname'] = $detlist['passname'][$i];
+$data_array['age'] = $detlist['age'][$i];
+$data_array['gender'] = $detlist['gender'][$i];
+$data_array['seats'] = $detlist['seats'][$i];
+$details = array_slice($data_array,0);	
+$encodevalue= json_encode($details);
+$list[] = $encodevalue;
+}
+$pass_name= implode($list, ',');
+$parsed = json_decode('['.$pass_name.']');
 
 ?>
 
