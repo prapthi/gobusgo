@@ -64,21 +64,26 @@ $price = trim($individualSeatPrice,",");
 </head>
 <div class="passdetails">
 <form id="passenger" method="POST" onsubmit="return validation();" name="passenger" action="secure.php">
-<input name="origname" type="hidden" id="origname" value="<?php echo $origname ?>"  />
-<input name="destiname" type="hidden" id="destiname" value="<?php echo $destiname?>"  />
-<input name="scheduleId" type="hidden" id="scheduleId"  value="<?php echo $scheduleId?>"  />
-<input name="depart" type="hidden" id="depart" value="<?php echo $depart?>"  />
-<input name="provider" type="hidden" id="provider" value="<?php echo $provider?>"  />
-<input name="type" type="hidden" id="type" value="<?php echo $type?>"  />
-<input name="boardame" type="hidden" id="boardame" value="<?php echo $boardame?>"  />
-<input name="boardid" type="hidden" id="boardid" value="<?php echo $boardid?>"  />
-<input name="seats" type="hidden" id="seats" value="<?php echo $seats?>"  />
-<input name="totalSeats" type="hidden" id="totalSeats" value="<?php echo $totalSeats?>"  />
-<input name="TotalSeatPrice" type="hidden" id="TotalSeatPrice" value="<?php echo $TotalSeatPrice?>"  />
-<input name="netprice" type="hidden" id="netprice" value="<?php echo $netprice?>"  />
-<input name="returnUrl" type="hidden" id="returnUrl" value="<?php echo 'http://localhost/gobusgo/response.php?DR='.$seats ?>"  />
-<input name="account_id" type="hidden" id="account_id" value="<?php echo '14384'?>"  />
-<input name="description" type="hidden" id="description" value="<?php echo 'bookings'?>"  />
+<input name="origname" type="hidden" id="origname" value="<?php echo $origname; ?>"  />
+<input name="destiname" type="hidden" id="destiname" value="<?php echo $destiname;?>"  />
+<input name="scheduleId" type="hidden" id="scheduleId"  value="<?php echo $scheduleId;?>"  />
+<input name="depart" type="hidden" id="depart" value="<?php echo $depart;?>"  />
+<input name="provider" type="hidden" id="provider" value="<?php echo $provider;?>"  />
+<input name="type" type="hidden" id="type" value="<?php echo $type;?>"  />
+<input name="boardame" type="hidden" id="boardame" value="<?php echo $boardame;?>"  />
+<input name="boardid" type="hidden" id="boardid" value="<?php echo $boardid;?>"  />
+<input name="seats" type="hidden" id="seats" value="<?php echo $seats;?>"  />
+<input name="totalSeats" type="hidden" id="totalSeats" value="<?php echo $totalSeats;?>"  />
+<input name="TotalSeatPrice" type="hidden" id="TotalSeatPrice" value="<?php echo $TotalSeatPrice;?>"  />
+<input name="netprice" type="hidden" id="netprice" value="<?php echo $netprice;?>"  />
+<!--<input name="returnUrl" type="hidden" id="returnUrl" value="<?php //echo 'http://www.gobusgo.in/response.php?DR=GBG' ?>"  />
+--><input name="account_id" type="hidden" id="account_id" value="<?php echo '14384'?>"  />
+<input name="description" type="hidden" id="description" value="<?php echo 'bookings'; ?>"  />
+
+
+
+
+
 <fieldset><legend style="color:#FF0000; font-weight:bold;">Details</legend>
 	<table class="passnamedet">
 		<tr><td style="color:#566DD2;font-weight:bold;">PASSENGER DETAILS</th></tr>

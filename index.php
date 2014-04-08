@@ -16,7 +16,8 @@ $arr=$result5->stationList;
 	  <meta name="Description" content="">
 	  <link rel="stylesheet" href="css/style.css" type="text/css">
 	<style type="text/css">
-		.ui-datepicker {
+		.ui-datepicker 
+	{
 		background: #333;
 		border: 1px solid #555;
 		color: #EEE;

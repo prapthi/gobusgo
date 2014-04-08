@@ -2,7 +2,6 @@ body
 {
 margin:0;
 padding:40px 0 0 0;
-
 background:#2ca4ef url(../images/top_bg.png) no-repeat center top;
 font-family:'Arial';
 font-size:13px;
@@ -821,10 +820,10 @@ cursor: pointer;
 }
 
 .passdetails{
-float:left; 
-margin:28px 50px; 
+margin:28px 50px 0; 
 padding:inherit; 
-width:600px;
+    clear: both;
+
 }
 
 .tabwid {
