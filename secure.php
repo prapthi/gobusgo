@@ -64,6 +64,17 @@ $tbl_name="gobusgo_passdetails";
 $gobusgo = "GB";
 $rand = mt_rand(10000000,999999999);
 $cust_book_id = $gobusgo .$rand;
+
+for($i=0;$i<$totalSeats;$i++){
+$data_array['passname'] = $_POST['passname'][$i];
+$data_array['age'] = $_POST['age'][$i];
+$data_array['gender'] = $_POST['gender'][$i];
+$data_array['seats'] = $_POST['seats'][$i];
+$details = array_slice($data_array,0);	
+$encodevalue= json_encode($details);
+$list[] = $encodevalue;
+}
+
 }
 ?>
 
