@@ -96,9 +96,7 @@ $passDetailsArray[] = $passdetails;
 }
 
 $blockseats=$client->blockSeatsForBooking($username,$password,$scheduleId,$depart,$originid,$destiid,$boardid,$email,$phone,$address,$passDetailsArray);
-print "<pre>";
-print_r($blockseats);
-print "</pre>";
+
 echo $bookingId= $blockseats->bookingId;
 $_SESSION['bookingId']=$bookingId;
 $cancellationDescList= $blockseats->cancellationDescList;
@@ -107,7 +105,7 @@ $status= $blockseats->status;
 echo $failCode= $status->code;
 
 if($failCode=='200' && $bookingId){	
-     print "testif"; 
+  
 $result = mysql_query("INSERT INTO $tbl_name(cust_book_id,contact_name,pass_name,address,country, state ,city, pin_code,mobile,email,fromStation,
 toStation,journey_date, scheduleId, provider,bus_type,boarding_name, bookingId,noOfSeats, netprice, totalFare, Bookingstatus)VALUES('$cust_book_id', '$contactname', '$pass_name', '$address', '$country', '$state' ,'$city', '$pincode', '$phone', '$email', '$origname', '$destiname','$joudate', '$scheduleId', '$provider', '$type', '$boardame', '$bookingId', '$totalSeats', '$netprice','$TotalSeatPrice' , '$Bookingstatus')");
 }else{
