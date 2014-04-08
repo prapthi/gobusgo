@@ -1,14 +1,14 @@
 <?php
-include('header.php');
-include('username.php');
-?>
-<?php
 ob_start();
 session_start();
 ini_set("display_errors", "1");
 error_reporting(-1);
-
 ?>
+<?php
+include('header.php');
+include('username.php');
+?>
+
 <?php
 $mode= "TEST";
 $accountId= "5880";
