@@ -93,19 +93,7 @@ function object_2_array($_POST)
     }
     return $array;
 }
-$detlist =object_2_array($_POST);
 
-for($i=0;$i<$totalSeats;$i++){
-$data_array['passname'] = $detlist['passname'][$i];
-$data_array['age'] = $detlist['age'][$i];
-$data_array['gender'] = $detlist['gender'][$i];
-$data_array['seats'] = $detlist['seats'][$i];
-$details = array_slice($data_array,0);	
-$encodevalue= json_encode($details);
-$list[] = $encodevalue;
-}
-$pass_name= implode($list, ',');
-$parsed = json_decode('['.$pass_name.']');
 
 ?>
 
