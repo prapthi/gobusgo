@@ -1,8 +1,11 @@
 <?php
-ob_start();
-session_start();
 include('header.php');
 include('username.php');
+?>
+<?php
+ob_start();
+session_start();
+
 ?>
 <?php
 print_r($_POST);
