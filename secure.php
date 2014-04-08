@@ -6,6 +6,14 @@ include('username.php');
 ob_start();
 session_start();
 ?>
+<?php
+$mode= "TEST";
+$accountId= "5880";
+$amount = $_POST['netprice'];	
+$reference_no= "45454545";
+$return_url= "http://www.gobusgo.in/response.php?DR=GBG";
+$hash = "ebskey"."|".$accountId."|".$amount."|".$reference_no."|".$return_url."|".$mode;
+?>
 
 
 <div class="section bookno">
