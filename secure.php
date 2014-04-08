@@ -15,10 +15,6 @@ $return_url= "http://www.gobusgo.in/response.php?DR=GBG";
 
 $hash = "ebskey"."|".$accountId."|".$amount."|".$reference_no."|".$return_url."|".$mode;
 
-print "<pre>";
-print_r($_POST);
-print_r($_SESSION);
-print "</pre>";
 
 //$hash = "4298621700f925bb4e7ea46cee128f12"."|"."14384"."|"."480"."|"."45454545"."|"."http://localhost/gobusgo/response.php?DR=J4"."|".$mode;
 
@@ -73,8 +69,20 @@ $tbl_name="gobusgo_passdetails";
 $gobusgo = "GB";
 $rand = mt_rand(10000000,999999999);
 $cust_book_id = $gobusgo .$rand;
-function object_2_array($_POST)
-{
+
+print "<pre>";
+print_r($_POST);
+print_r($_SESSION);
+print "</pre>";
+function object_2_array($_POST){
+    
+    
+print "<pre>";
+print_r($_POST);
+print_r($_SESSION);
+print "</pre>";
+    
+    
     $array = array();
     foreach ($_POST as $key=>$value)
     {
