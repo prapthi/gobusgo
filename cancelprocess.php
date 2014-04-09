@@ -11,9 +11,8 @@ if(isset($_POST['submit'])){
 	$pmail =$_POST['pmail'];
 	$ptel =$_POST['ptel'];
 	$selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId' ";
-	print $selectqry; 
-	
 	$sql = mysql_query($selectqry) or die(mysql_error());
+	print_r(mysql_query($selectqry)); exit();
 	$fetchseat = mysql_fetch_array($sql);
 	$seatnum= $fetchseat['pass_name'];
 	$parSeat = json_decode('['.$seatnum.']');
