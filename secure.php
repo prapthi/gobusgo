@@ -95,6 +95,9 @@ $passdetails->seatNbr=$seats;
 $passDetailsArray[] = $passdetails;
 }
 
+print "<pre>";
+print_r($_POST);
+print "</pre>";
 $blockseats=$client->blockSeatsForBooking($username,$password,$scheduleId,$depart,$originid,$destiid,$boardid,$email,$phone,$address,$passDetailsArray);
 
 echo $bookingId= $blockseats->bookingId;
