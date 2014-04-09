@@ -155,4 +155,7 @@ function validate(){
 
 }
 </script>
+<?php
+include('footer.php');
+?>
 <?php ob_flush(); ?>
