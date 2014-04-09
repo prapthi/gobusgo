@@ -219,36 +219,7 @@ $arr=$result5->stationList;
 								    <td width=""  class="sp1" ><?php echo $provider; ?></td>
 								    <td width="" class="sp2"><?php echo $type;?></td>
 								    <td width="" class="sp3">
-									<a class="tip" href="javascript:void(0)" style="text-align:left; line-height:135%; cursor:pointer;"><?php echo $departtime;?><span>
-											<input type="hidden" value="<?php echo $provider;?>" class="provider">
-											<input type="hidden" value="<?php echo $type;?>" class="type">									    
-											<input type="hidden" value="<?php echo $fare;?>" class="netprice">
-											<input type="hidden" value="<?php echo $scheduleId;?>" class="scheduleId">
-											<input type="hidden" value="<?php echo $depart;?>" class="depart">
-											<input type="hidden" value="<?php echo $departtime;?>" class="departtime">
-											<input type="hidden" value="<?php echo $originid;?>" class="originid">
-											<input type="hidden" value="<?php echo $destiid;?>" class="destiid">
-											<input type="hidden" value="<?php echo $origname;?>" class="origname">
-											<input type="hidden" value="<?php echo $destiname;?>" class="destiname">
-					<?php $getTripDet=$client->GetTripDetailsV2($username,$password,$originid,$destiid,$depart,$scheduleId);
-							//$getTripDet=$client->GetTripDetailsV2($username,$password,"71","100","25/02/2014","7BA1YI13XC85135");  
-							 
-							$resTripDet=$getTripDet->tripDetails; 
-							$boardingpoints =$resTripDet->boardingPointList;
 
-											
-											
-												echo "Departure From ". $origname."<br/>";
-												echo "boardingpoints". "<br/>";
-												
-												foreach ($boardingpoints as $boarding ) {  
-													$boardingid = $boarding->boardingPointId; 
-													$boardingname = $boarding->boardingPointName; 
-													$boardingtime = $boarding->time;
-													echo "<li style='list-style:none;'>".$boardingtime. ' ---- ' .$boardingname. "</br>"."</li>" ;
-												}
-												
-											  ?></span></a>
 									</td>
 								    <td width=""  class="sp4"><?php echo $arrivalTime	;?></td>
 								    <td width="" class="sp5" ><?php echo $availableSeats;?></td>
