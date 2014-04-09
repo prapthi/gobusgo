@@ -80,7 +80,7 @@ $list[] = $encodevalue;
 $pass_name= implode($list, ',');
 $parsed = json_decode('['.$pass_name.']');
 
-$passdetails= new stdClass;
+//$passdetails= new stdClass;
 foreach($parsed as $value){
     $passdetails= new stdClass;
 $name=$value->passname ;
