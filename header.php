@@ -50,8 +50,7 @@
 					<li id="index"><a href="index.php">Home</a></li>
 					<li><a href="about.php">About</a></li>
 					<li><a href="ticket.php">Print Ticket</a></li>
-                    			<!--<li><a href="payment.php">Payment</a></li>-->
-					<li><a href="cancel.php">Cancellation</a></li>
+                    			<li><a href="cancel.php">Cancellation</a></li>
 					<li><a href="contact.php">Contact Us</a></li>
 				</ul>
 			</div>
