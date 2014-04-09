@@ -97,6 +97,18 @@ $passDetailsArray[] = $passdetails;
 
 print "<pre>";
 print_r($_POST);
+print $username;
+print $password;
+print $scheduleId;
+print $depart;
+print $originid;
+print $destiid;
+print $boardid;
+print $email;
+print $phone;
+print $address;
+print_r($passDetailsArray);
+
 print "</pre>";
 $blockseats=$client->blockSeatsForBooking($username,$password,$scheduleId,$depart,$originid,$destiid,$boardid,$email,$phone,$address,$passDetailsArray);
 
