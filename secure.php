@@ -96,7 +96,7 @@ $passDetailsArray[] = $passdetails;
 }
 
 print "<pre>";
-print_r($_POST);
+//print_r($_POST);
 print "</pre>";
 $blockseats=$client->blockSeatsForBooking($username,$password,$scheduleId,$depart,$originid,$destiid,$boardid,$email,$phone,$address,$passDetailsArray);
 
@@ -108,9 +108,9 @@ $status= $blockseats->status;
 echo $failCode= $status->code;
 
     print "<pre>";
-    print_r($blockseats);
+    //print_r($blockseats);
     print "</pre>";
-    exit();
+   // exit();
 
 if($failCode=='200' && $bookingId){	
   
