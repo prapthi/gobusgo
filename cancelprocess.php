@@ -10,7 +10,9 @@ if(isset($_POST['submit'])){
 	$bookingId = $_POST['bookingId'];
 	$pmail =$_POST['pmail'];
 	$ptel =$_POST['ptel'];
-	$selectqry    = "SELECT pass_name FROM gobusgo_passdetails WHERE bookingId = '$bookingId' ";
+	$selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId' ";
+	print $selectqry; 
+	
 	$sql = mysql_query($selectqry) or die(mysql_error());
 	$fetchseat = mysql_fetch_array($sql);
 	$seatnum= $fetchseat['pass_name'];
