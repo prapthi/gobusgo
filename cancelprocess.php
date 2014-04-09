@@ -12,7 +12,7 @@ if(isset($_POST['submit'])){
 	$ptel =$_POST['ptel'];
 	$selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId' ";
 	$sql = mysql_query($selectqry);
-	$fetchseat = mysql_fetch_row($sql);
+	$fetchseat = mysql_fetch_array($sql);
 	print_r($sql); print_r($fetchseat);exit();
 	$seatnum= $fetchseat['pass_name'];
 	$parSeat = json_decode('['.$seatnum.']');
