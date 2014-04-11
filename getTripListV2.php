@@ -65,6 +65,8 @@ if($_POST){
 	$origname = $_SESSION['origname'];
 	$destiname = $_SESSION['destiname'];
 }
+print $username."<br>";
+print $password."<br>";
 $getTripList=$client->GetTripListV2($username,$password,$originid,$destiid,$depart); 
 $status=$getTripList->status;
 $failCode= $status->code;
