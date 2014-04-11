@@ -6,9 +6,6 @@ session_start();
 include('header.php');
 include('username.php');
 
-print "<pre>";
-print_r($_POST);
-print "</pre>";
 ?>
 
 <?php
@@ -36,87 +33,81 @@ $description= "Gobusgo Seat Booking";
 $submit = $_POST['continuebooking'];
 
 if($submit= "Continue Booking"){
-$originid = $_SESSION['originid'];
-$destiid = $_SESSION['destiid'];
-$scheduleId = $_SESSION['scheduleId'];
-$depart = $_SESSION['depart'];
-$repdate = str_replace('/', '-', $depart);
-$joudate =date('Y-m-d', strtotime($repdate));
-
-$boardid= $_POST['boardid'];
-$email= $_POST['email'];
-$phone= $_POST['phone'];
-$city= $_POST['city'];
-$addr= $_POST['address'];
-$address = addslashes($addr);
-$state= $_POST['state'];
-$country= $_POST['country'];
-$contactname= $_POST['contactname'];
-$origname= $_POST['origname'];
-$destiname= $_POST['destiname'];
-$provider= $_POST['provider'];
-$type= $_POST['type'];
-$boardame= $_POST['boardame'];
-
-$seatsNbr= $_POST['seats'];
-
-$totalSeats= $_POST['totalSeats'];
-$netprice= $_POST['netprice'];
-
-$pincode = $_POST['pincode'];
-$netprice= $_POST['netprice'];
-$TotalSeatPrice= $_POST['TotalSeatPrice'];
-$Bookingstatus= "Booked";
-$tbl_name="gobusgo_passdetails";
-$gobusgo = "GB";
-$rand = mt_rand(10000000,999999999);
-$cust_book_id = $gobusgo .$rand;
-
-for($i=0;$i<$totalSeats;$i++){
-$data_array['passname'] = $_POST['passname'][$i];
-$data_array['age'] = $_POST['age'][$i];
-$data_array['gender'] = $_POST['gender'][$i];
-$data_array['seats'] = $_POST['seats'][$i];
-$details = array_slice($data_array,0);	
-$encodevalue= json_encode($details);
-$list[] = $encodevalue;
-}
-$pass_name= implode($list, ',');
-$parsed = json_decode('['.$pass_name.']');
-
-//$passdetails= new stdClass;
-foreach($parsed as $value){
-    $passdetails= new stdClass;
-$name=$value->passname ;
-$age=$value->age;
-$gender=$value->gender;
-$seats=$value->seats;
-$passdetails->age=$age;
-$passdetails->sex=$gender;
-$passdetails->name=$name;
-$passdetails->extraSeatFlagNotFound=true;
-$passdetails->seatNbr=$seats;
-$passDetailsArray[] = $passdetails;
-}
-$blockseats=$client->blockSeatsForBooking($username,$password,$scheduleId,$depart,$originid,$destiid,$boardid,$email,$phone,$address,$passDetailsArray);
-$bookingId= $blockseats->bookingId;
-$_SESSION['bookingId']=$bookingId;
-$cancellationDescList= $blockseats->cancellationDescList;
-$expireTime= $blockseats->expireTime;
-$status= $blockseats->status;
-echo $failCode= $status->code;
-if($failCode=='200' && $bookingId){	
-	$result = mysql_query("INSERT INTO $tbl_name(cust_book_id,contact_name,pass_name,address,country, state ,city, pin_code,mobile,email,fromStation,
-	toStation,journey_date, scheduleId, provider,bus_type,boarding_name, bookingId,noOfSeats, netprice, totalFare, Bookingstatus)VALUES('$cust_book_id', '$contactname', '$pass_name', '$address', '$country', '$state' ,'$city', '$pincode', '$phone', '$email', '$origname', '$destiname','$joudate', '$scheduleId', '$provider', '$type', '$boardame', '$bookingId', '$totalSeats', '$netprice','$TotalSeatPrice' , '$Bookingstatus')");
-}else{
-	header("Location:getTripListV2.php");
-}
+	$originid = $_SESSION['originid'];
+	$destiid = $_SESSION['destiid'];
+	$scheduleId = $_SESSION['scheduleId'];
+	$depart = $_SESSION['depart'];
+	$repdate = str_replace('/', '-', $depart);
+	$joudate =date('Y-m-d', strtotime($repdate));
+	
+	$boardid= $_POST['boardid'];
+	$email= $_POST['email'];
+	$phone= $_POST['phone'];
+	$city= $_POST['city'];
+	$addr= $_POST['address'];
+	$address = addslashes($addr);
+	$state= $_POST['state'];
+	$country= $_POST['country'];
+	$contactname= $_POST['contactname'];
+	$origname= $_POST['origname'];
+	$destiname= $_POST['destiname'];
+	$provider= $_POST['provider'];
+	$type= $_POST['type'];
+	$boardame= $_POST['boardame'];
+	
+	$seatsNbr= $_POST['seats'];
+	
+	$totalSeats= $_POST['totalSeats'];
+	$netprice= $_POST['netprice'];
+	
+	$pincode = $_POST['pincode'];
+	$netprice= $_POST['netprice'];
+	$TotalSeatPrice= $_POST['TotalSeatPrice'];
+	$Bookingstatus= "Booked";
+	$tbl_name="gobusgo_passdetails";
+	$gobusgo = "GB";
+	$rand = mt_rand(10000000,999999999);
+	$cust_book_id = $gobusgo .$rand;
+	
+	for($i=0;$i<$totalSeats;$i++){
+		$data_array['passname'] = $_POST['passname'][$i];
+		$data_array['age'] = $_POST['age'][$i];
+		$data_array['gender'] = $_POST['gender'][$i];
+		$data_array['seats'] = $_POST['seats'][$i];
+		$details = array_slice($data_array,0);	
+		$encodevalue= json_encode($details);
+		$list[] = $encodevalue;
+	}
+	$pass_name= implode($list, ',');
+	$parsed = json_decode('['.$pass_name.']');
+	
+	//$passdetails= new stdClass;
+	foreach($parsed as $value){
+		$passdetails= new stdClass;
+		$name=$value->passname ;
+		$age=$value->age;
+		$gender=$value->gender;
+		$seats=$value->seats;
+		$passdetails->age=$age;
+		$passdetails->sex=$gender;
+		$passdetails->name=$name;
+		$passdetails->extraSeatFlagNotFound=true;
+		$passdetails->seatNbr=$seats;
+		$passDetailsArray[] = $passdetails;
+	}
+	$blockseats=$client->blockSeatsForBooking($username,$password,$scheduleId,$depart,$originid,$destiid,$boardid,$email,$phone,	$address,$passDetailsArray);
+	$bookingId= $blockseats->bookingId;
+	$_SESSION['bookingId']=$bookingId;
+	$cancellationDescList= $blockseats->cancellationDescList;
+	$expireTime= $blockseats->expireTime;
+	$status= $blockseats->status;
+	echo $failCode= $status->code;
+	if($failCode=='200' && $bookingId){	
+		$result = mysql_query("INSERT INTO $tbl_name(cust_book_id,contact_name,pass_name,address,country, state ,city, pin_code,mobile,email,fromStation,
+		toStation,journey_date, scheduleId, provider,bus_type,boarding_name, bookingId,noOfSeats, netprice, totalFare, Bookingstatus)VALUES('$cust_book_id', '$contactname', '$pass_name', '$address', '$country', '$state' ,'$city', '$pincode', '$phone', '$email', '$origname', '$destiname','$joudate', '$scheduleId', '$provider', '$type', '$boardame', '$bookingId', '$totalSeats', '$netprice','$TotalSeatPrice' , '$Bookingstatus')");
+	}
 }
 
-
-
-
-}
 ?>
 
 
