@@ -95,7 +95,9 @@ $passdetails->seatNbr=$seats;
 $passDetailsArray[] = $passdetails;
 }
 $blockseats=$client->blockSeatsForBooking($username,$password,$scheduleId,$depart,$originid,$destiid,$boardid,$email,$phone,$address,$passDetailsArray);
-
+print "<pre>";
+print_r($blockseats);
+print "</pre>";
 $bookingId= $blockseats->bookingId;
 $_SESSION['bookingId']=$bookingId;
 $cancellationDescList= $blockseats->cancellationDescList;
