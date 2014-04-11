@@ -108,8 +108,9 @@ $depart = $_SESSION['depart'];
 	
 	$bookTickets= $client->bookTicket($username,$password,$bookingId);
 	print "<pre>";
+	
 	print_r($bookTickets)."<br>";
-		print $username."<br>";
+		print "username".$username."<br>";
 			print $password."<br>";
 	print $bookingId."<br>";
 	print "</pre>";
