@@ -141,7 +141,7 @@ $mail->Port = 465; // or 587
 
 $mail->Username = "bhubhu20122013@gmail.com";
 $mail->Password = "bhubhu2bhubhu";
-$mail->FromName = "Bhuvaneswari Balagangadharan";
+$mail->FromName = "Gobusgo";
 $mail->SetFrom("bhubhu20122013@gmail.com");
 $mail->AddAddress($email);
 
@@ -161,11 +161,11 @@ $body .= '<html><head><title>GoBusGo Details</title></head>
 						</table>
 					</body>
 				</html>';
-$mail->SetFrom('bgbhuvana@gmail.com');
-$mail->AddReplyTo("bgbhuvana@gmail.com");
+
+$mail->AddReplyTo("bhubhu20122013@gmail.com");
 /*$mail->AddReplyTo("bgbhuvana@gmail.com");*/
 $address = "bgbhuvana@gmail.com";
-$mail->AddAddress($address);
+
 $mail->Subject    = " PFA the GoBusGo- Details";
 $mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
 $mail->MsgHTML($body);
