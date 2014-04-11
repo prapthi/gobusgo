@@ -110,7 +110,7 @@ $depart = $_SESSION['depart'];
 	$seatsbooked = $fetchseat['seatNbr'] ;
 	$bookingId = $fetchseat['bookingId'] ;
 	
-	$bookTickets= $client->bookTicket("mrassociates","gobusbo963",$bookingId);
+	$bookTickets= $client->bookTicket($username,$password,$bookingId);
 	print "<pre>";
 	
 	print_r($bookTickets)."<br>";
