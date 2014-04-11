@@ -1,8 +1,6 @@
 <?php
 ob_start();
 session_start();
-//ini_set("display_errors", "1");
-//error_reporting(-1);
 ?>
 <?php
 include('header.php');
@@ -96,41 +94,22 @@ $passdetails->extraSeatFlagNotFound=true;
 $passdetails->seatNbr=$seats;
 $passDetailsArray[] = $passdetails;
 }
-
-/*print "<pre>";
-print_r($_POST);
-print $username;
-print $password;
-print $scheduleId;
-print $depart;
-print $originid;
-print $destiid;
-print $boardid;
-print $email;
-print $phone;
-print $address;
-print_r($passDetailsArray);
-
-print "</pre>"; */
 $blockseats=$client->blockSeatsForBooking($username,$password,$scheduleId,$depart,$originid,$destiid,$boardid,$email,$phone,$address,$passDetailsArray);
 
-echo $bookingId= $blockseats->bookingId;
+$bookingId= $blockseats->bookingId;
 $_SESSION['bookingId']=$bookingId;
 $cancellationDescList= $blockseats->cancellationDescList;
 $expireTime= $blockseats->expireTime;
 $status= $blockseats->status;
 echo $failCode= $status->code;
-
-    print "<pre>";
-    print_r($blockseats);
-    print "</pre>";
-   // exit();
-
 if($failCode=='200' && $bookingId){	
   
 $result = mysql_query("INSERT INTO $tbl_name(cust_book_id,contact_name,pass_name,address,country, state ,city, pin_code,mobile,email,fromStation,
 toStation,journey_date, scheduleId, provider,bus_type,boarding_name, bookingId,noOfSeats, netprice, totalFare, Bookingstatus)VALUES('$cust_book_id', '$contactname', '$pass_name', '$address', '$country', '$state' ,'$city', '$pincode', '$phone', '$email', '$origname', '$destiname','$joudate', '$scheduleId', '$provider', '$type', '$boardame', '$bookingId', '$totalSeats', '$netprice','$TotalSeatPrice' , '$Bookingstatus')");
+}else{
+	header("Location:getTripListV2.php");
 }
+
 
 
 }
