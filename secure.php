@@ -12,7 +12,7 @@ include('username.php');
 <?php
 echo $mode= "TEST"."<br>";
 echo $accountId= "5880"."<br>";
-echo $amount = $_POST['netprice']."<br>";	
+echo $amount = '480';	
 echo $reference_no= "45454545"."<br>";
 echo $return_url= "http://www.gobusgo.in/response.php?DR=J4"."<br>";
 echo $hash = "ebskey"."|".$accountId."|".$amount."|".$reference_no."|".$return_url."|".$mode."<br>";
