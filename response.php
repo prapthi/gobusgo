@@ -14,9 +14,7 @@ if(isset($_GET['DR'])) {
 	 	$param = split('=',$param);
 		$response[$param[0]] = urldecode($param[1]);
 	 }
-print "<pre>";
-print_r($response);
-print "</pre>";
+
 	 
 }
 ?>
