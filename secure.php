@@ -10,13 +10,13 @@ include('username.php');
 ?>
 
 <?php
-$mode= "TEST";
-$accountId= "5880";
-$amount = $_POST['netprice'];	
-$reference_no= "45454545";
-$return_url= "http://www.gobusgo.in/response.php?DR=GBG";
-$hash = "ebskey"."|".$accountId."|".$amount."|".$reference_no."|".$return_url."|".$mode;
-$secure_hash = md5($hash);
+echo $mode= "TEST"."<br>";
+echo $accountId= "5880"."<br>";
+echo $amount = $_POST['netprice']."<br>";	
+echo $reference_no= "45454545"."<br>";
+echo $return_url= "http://www.gobusgo.in/response.php?DR=J4"."<br>";
+echo $hash = "ebskey"."|".$accountId."|".$amount."|".$reference_no."|".$return_url."|".$mode."<br>";
+echo $secure_hash = md5($hash)."<br>";
 
 $name= $_POST['contactname'];
 $address= $_POST['address'];
