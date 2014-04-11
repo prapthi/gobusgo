@@ -41,6 +41,11 @@ if(isset($_GET['DR'])) {
             <th colspan="2">Transaction Details</th>
         </tr>
 <?php
+print "<pre>";
+print_r($_POST);
+print "</pre>";
+
+
 		foreach( $response as $key => $value) {
 ?>			
         <tr>
