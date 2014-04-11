@@ -16,7 +16,6 @@ $amount = "480";
 $reference_no= "45454545";
 $return_url= "http://www.gobusgo.in/response.php?DR=J4";
 
-
 $hash = "ebskey"."|".$accountId."|".$amount."|".$reference_no."|".$return_url."|".$mode;
 $secure_hash = md5($hash);
 
@@ -146,7 +145,7 @@ toStation,journey_date, scheduleId, provider,bus_type,boarding_name, bookingId,n
 <form  method="post" action="https://secure.ebs.in/pg/ma/sale/pay" name="frmTransaction" id="frmTransaction" onSubmit="return validate()">
 	<input name="account_id" type="hidden" value="<? echo $accountId ?>">
 	
-	<input name="return_url" type="hidden" size="60" value="http://localhost/gobusgo/response.php?DR=J4" />
+	<input name="return_url" type="hidden" size="60" value="http://www.gobusgo.in/response.php?DR=J4" />
 	<input name="mode" type="hidden" size="60" value="<? echo $mode?>" />
 	<input name="reference_no" type="hidden" value="45454545" />
 	<input name="amount" type="hidden" value="480" />
