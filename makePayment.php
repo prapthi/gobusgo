@@ -107,6 +107,9 @@ $depart = $_SESSION['depart'];
 	$bookingId = $fetchseat['bookingId'] ;
 	
 	$bookTickets= $client->BookTicket($username,$password,$bookingId);
+	print "<pre>";
+	print_r($bookTickets);
+	print "</pre>";
 	$cancellist = $bookTickets->cancellationDescList;
 	$extraSeatList = $bookTickets->extraSeatInfoList;
 	
