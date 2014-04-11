@@ -57,6 +57,10 @@ if(isset($_GET['DR'])) {
 ?>		
 	</table>
 </center>
-<table width='100%' cellpadding='0' cellspacing="0" ><tr><th width='90%'>&nbsp;</th></tr></table>
+<table width='100%' cellpadding='0' cellspacing="0" ><tr><th width='90%'>&nbsp;</th></tr></table
+<form action="makePayment.php">
+<input type="submit" name="submit" value="CONTINUE" />
+
+</form>
 </body>
 </html>
