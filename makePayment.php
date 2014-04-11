@@ -251,7 +251,7 @@ function printPage(printContent) {
 	<a href="javascript:void(0);" onClick="printPage(printsection.innerHTML)"><img src="images/printer.jpg" /></a>	
 </div>
 <div class="pdf">
-<?php phptopdf_html($html,'pdf/',$fetchseat['cust_book_id'] .'_'. $fetchseat['contact_name'] . '.pdf');
+<?php phptopdf_html($html,'fpdf/',$fetchseat['cust_book_id'] .'_'. $fetchseat['contact_name'] . '.pdf');
 
 echo '<a href="pdf/'.$fetchseat['cust_book_id'].'_'.$fetchseat['contact_name'].'.pdf" target="_blank"><img src="images/pdf.png"></a>'; 
 //echo "<a href='pdf/$fetchseat['cust_book_id'].pdf'><img src='images/pdf.png'></a>";
