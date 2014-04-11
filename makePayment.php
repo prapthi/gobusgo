@@ -376,7 +376,7 @@ echo '<a href="fpdf/'.$fetchseat['cust_book_id'].'_'.$fetchseat['contact_name'].
 
 </div>
 <?php
-
+}
 }?>
 
 
