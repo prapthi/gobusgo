@@ -5,6 +5,12 @@ session_start();
 <?php
 include('header.php');
 include('username.php');
+
+print "<pre>";
+print_r($_POST);
+print "</pre>";
+exit();
+
 ?>
 
 <?php
@@ -102,12 +108,10 @@ $expireTime= $blockseats->expireTime;
 $status= $blockseats->status;
 echo $failCode= $status->code;
 if($failCode=='200' && $bookingId){	
-  
-$result = mysql_query("INSERT INTO $tbl_name(cust_book_id,contact_name,pass_name,address,country, state ,city, pin_code,mobile,email,fromStation,
-toStation,journey_date, scheduleId, provider,bus_type,boarding_name, bookingId,noOfSeats, netprice, totalFare, Bookingstatus)VALUES('$cust_book_id', '$contactname', '$pass_name', '$address', '$country', '$state' ,'$city', '$pincode', '$phone', '$email', '$origname', '$destiname','$joudate', '$scheduleId', '$provider', '$type', '$boardame', '$bookingId', '$totalSeats', '$netprice','$TotalSeatPrice' , '$Bookingstatus')");
-else{
-header('location:getTripListV2.php');
-	
+	$result = mysql_query("INSERT INTO $tbl_name(cust_book_id,contact_name,pass_name,address,country, state ,city, pin_code,mobile,email,fromStation,
+	toStation,journey_date, scheduleId, provider,bus_type,boarding_name, bookingId,noOfSeats, netprice, totalFare, Bookingstatus)VALUES('$cust_book_id', '$contactname', '$pass_name', '$address', '$country', '$state' ,'$city', '$pincode', '$phone', '$email', '$origname', '$destiname','$joudate', '$scheduleId', '$provider', '$type', '$boardame', '$bookingId', '$totalSeats', '$netprice','$TotalSeatPrice' , '$Bookingstatus')");
+}else{
+	header("Location:getTripListV2.php");
 }
 }
 
