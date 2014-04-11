@@ -264,7 +264,7 @@ function printPage(printContent) {
 <div class="pdf">
 <?php phptopdf_html($html,'fpdf/',$fetchseat['cust_book_id'] .'_'. $fetchseat['contact_name'] . '.pdf');
 
-echo '<a href="pdf/'.$fetchseat['cust_book_id'].'_'.$fetchseat['contact_name'].'.pdf" target="_blank"><img src="images/pdf.png"></a>'; 
+echo '<a href="fpdf/'.$fetchseat['cust_book_id'].'_'.$fetchseat['contact_name'].'.pdf" target="_blank"><img src="images/pdf.png"></a>'; 
 //echo "<a href='pdf/$fetchseat['cust_book_id'].pdf'><img src='images/pdf.png'></a>";
 //echo "<a href='downloads/$fetchseat['cust_book_id'] .'_'. $fetchseat['contact_name'] . '.pdf' target='_blank'><img src='images/pdf.png'></a>";
  ?>
