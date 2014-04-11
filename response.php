@@ -1,6 +1,16 @@
 <?php
 
+
+print "session";
+
+print "<pre>";
+print_r($_GET);
+print_r($_POST);
 print_r($_SESSION);
+print_r($_REQUEST);
+print "</pre>";
+
+
 
 	 $secret_key = "ebskey";	 // Your Secret Key
 if(isset($_GET['DR'])) {
