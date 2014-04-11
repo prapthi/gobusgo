@@ -14,7 +14,7 @@ $mode= "TEST";
 $accountId= "5880";
 $amount = "480";	
 $reference_no= "45454545";
-$return_url= "http://www.gobusgo.in/response.php?DR=J4"."<br>";
+$return_url= "http://www.gobusgo.in/response.php?DR=J4";
 
 
 $hash = "ebskey"."|".$accountId."|".$amount."|".$reference_no."|".$return_url."|".$mode;
