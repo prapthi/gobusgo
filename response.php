@@ -1,4 +1,7 @@
 <?php
+
+print_r($_SESSION);
+
 	 $secret_key = "ebskey";	 // Your Secret Key
 if(isset($_GET['DR'])) {
 	 require('Rc43.php');
