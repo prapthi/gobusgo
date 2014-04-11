@@ -6,6 +6,7 @@ session_start();
 include_once('phpToPDF.php') ;
 include('header.php');
 include('username.php');
+include('PHPMailer/class.phpmailer.php');
 ?>
 
 
@@ -81,6 +82,7 @@ function printPage(printContent) {
 $bookingId = $_SESSION['bookingId'];
 $depart = $_SESSION['depart'];
 //if(isset($bookingId)){
+if (isset($_POST['submit'])){
 	$selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId' ";
 	$sql = mysql_query($selectqry) or die(mysql_error());
 	$fetchseat = mysql_fetch_assoc($sql);
@@ -125,6 +127,61 @@ $depart = $_SESSION['depart'];
 	
 	$status = $bookTickets->status;
 	$code= $status->code;
+	
+	
+
+
+$mail             = new PHPMailer(); // defaults to using php "mail()"
+$mail->IsSMTP(); // enable SMTP
+$mail->SMTPAuth = true; // authentication enabled
+$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
+$mail->Host = "smtp.gmail.com";
+$mail->Port = 465; // or 587
+//$mail->IsHTML(true);
+
+$mail->Username = "bhubhu20122013@gmail.com";
+$mail->Password = "bhubhu2bhubhu";
+$mail->FromName = "Bhuvaneswari Balagangadharan";
+$mail->SetFrom("bhubhu20122013@gmail.com");
+$mail->AddAddress($email);
+
+//$mail->IsSendmail(); // telling the class to use SendMail transport
+$body .= '<html><head><title>GoBusGo Details</title></head>
+					<body>
+						<table width="750" border="0" align="center" cellpadding="0" cellspacing="10">
+							<tr><td style="border:1px solid #666666;">
+								<table>
+									<tr><td>
+										<table width="500px" border="0" align="center" cellpadding="0" cellspacing="0">
+											<tr><td>Booking Id</td><td>:</td><td>'.$bookingId.'</td></tr>
+										</table>
+									</td></tr>
+								</table>
+							</td></tr>
+						</table>
+					</body>
+				</html>';
+$mail->SetFrom('bgbhuvana@gmail.com');
+$mail->AddReplyTo("bgbhuvana@gmail.com");
+/*$mail->AddReplyTo("bgbhuvana@gmail.com");*/
+$address = "bgbhuvana@gmail.com";
+$mail->AddAddress($address);
+$mail->Subject    = " PFA the GoBusGo- Details";
+$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
+$mail->MsgHTML($body);
+$mail->AddAttachment("fpdf/".$fetchseat['cust_book_id'].'_'.$fetchseat['contact_name'].".pdf");     // attachment
+
+if(!$mail->Send()) {
+echo "Mailer Error: " . $mail->ErrorInfo;
+} else {
+echo "Message sent!";
+}
+
+
+
+	
+	
+	
 ?>
 <body>
 <?php 
@@ -319,49 +376,8 @@ echo '<a href="fpdf/'.$fetchseat['cust_book_id'].'_'.$fetchseat['contact_name'].
 
 </div>
 <?php
-require_once('PHPMailer/class.phpmailer.php');
 
-$mail             = new PHPMailer(); // defaults to using php "mail()"
-$mail->IsSendmail(); // telling the class to use SendMail transport
-$body .= '<html><head><title>GoBusGo Details</title></head>
-						<body>
-							<table width="750" border="0" align="center" cellpadding="0" cellspacing="10">
-								<tr><td style="border:1px solid #666666;">
-									<table>
-										<tr><td>
-											<table width="500px" border="0" align="center" cellpadding="0" cellspacing="0">
-												<tr><td>Booking Id</td><td>:</td><td>'.$bookingId.'</td></tr>
-											</table>
-										</td></tr>
-									</table>
-								</td></tr>
-							</table>
-						</body>
-					</html>';
-$mail->SetFrom('sakthivel@prapthi.com');
-$mail->AddReplyTo("bhuvaneswarib@embossdesignstudio.com");
-/*$mail->AddReplyTo("bgbhuvana@gmail.com");*/
-$address = "bgbhuvana@gmail.com";
-$mail->AddAddress($address);
-$mail->Subject    = " PFA the GoBusGo- Details";
-$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
-$mail->MsgHTML($body);
-$mail->AddAttachment("pdf/".$fetchseat['cust_book_id'].'_'.$fetchseat['contact_name'].".pdf");     // attachment
-
-if(!$mail->Send()) {
-	echo "Mailer Error: " . $mail->ErrorInfo;
-} else {
-	echo "Message sent!";
-}
-
-
- }else{  ?>
-<div style="padding:20px 10px 15px 11px;margin:145px; font-size:22px; line-height:1.3cm; color:#244255;"> TRY AGAIN......</div>
-<?php
-	unset($_SESSION); // will delete just the name data
-	session_destroy();
-}
-//}?>
+}?>
 
 
 <link rel="stylesheet" type="text/css" media="print" href="print.css" />
