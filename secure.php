@@ -12,7 +12,7 @@ include('username.php');
 <?php
 $mode= "TEST";
 $accountId= "5880";
-$amount = "480";	
+$amount = $_POST['TotalSeatPrice'];	
 $reference_no= "45454545";
 $return_url= "http://www.gobusgo.in/response.php?DR=J4";
 
@@ -148,7 +148,7 @@ toStation,journey_date, scheduleId, provider,bus_type,boarding_name, bookingId,n
 	<input name="return_url" type="hidden" size="60" value="http://www.gobusgo.in/response.php?DR=J4" />
 	<input name="mode" type="hidden" size="60" value="<? echo $mode?>" />
 	<input name="reference_no" type="hidden" value="45454545" />
-	<input name="amount" type="hidden" value="480" />
+	<input name="amount" type="hidden" value="<? echo $amount ?>" />
 	<input name="description" type="hidden" value="<? echo $description ?>" /> 
 	<input name="name" type="hidden" maxlength="255" value="<? echo $name ?>" />
 	<input name="address" type="hidden" maxlength="255" value="<? echo $address ?>" />
