@@ -1,9 +1,13 @@
-<?php ob_start();
+<?php
+ob_start();
 session_start();
-include('username.php');
- //include_once('phpToPDF.php') ;
- include('header.php');
 ?>
+<?php
+include_once('phpToPDF.php') ;
+include('header.php');
+include('username.php');
+?>
+
 
 <link type="text/css" rel="stylesheet" href="css/lightbox.css">
 <style>
