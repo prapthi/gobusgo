@@ -14,7 +14,8 @@ $mode= "TEST";
 $accountId= "5880";
 $amount = "480";	
 $reference_no= "45454545";
-$return_url= "http://localhost/gobusgo/response.php?DR=J4";
+$return_url= "http://www.gobusgo.in/response.php?DR=J4"."<br>";
+
 
 $hash = "ebskey"."|".$accountId."|".$amount."|".$reference_no."|".$return_url."|".$mode;
 $secure_hash = md5($hash);
