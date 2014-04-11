@@ -28,7 +28,7 @@ $email= $_POST['email'];
 $phone= $_POST['phone'];
 //$scheduleId= $_POST['scheduleId'];
 
-$description= "Seats";
+$description= "Gobusgo Seat Booking";
 $submit = $_POST['continuebooking'];
 
 if($submit= "Continue Booking"){
