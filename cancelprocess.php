@@ -26,12 +26,11 @@ if(isset($_POST['submit'])){
 <?php
 $cancelTickets=$client->CancelTicket($username,$password,$bookingId,$seatArray); 
 print "<pre>";
-	print_r($username);
-	print_r($password);
-	print_r($bookingId);
-	print_r($seatArray);
+	print_r($cancelTickets);
 	print "</pre>";
-$failcode = $cancelTickets->status->code;
+
+$failcode; = $cancelTickets->status->code;
+print $failcode;
 if($failcode=='500'){
 	header('location:cancel.php?err=1');
 }else{
