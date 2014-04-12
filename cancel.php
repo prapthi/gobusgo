@@ -32,8 +32,6 @@ if (isset($_GET['err']) && $_GET['err'] == 'foo') {
 <div class="section">
 <div style="color:#FF0000;"><?php echo error(); ?></div>
 	<div class="print">
-
-	
 		<form name="cancelform" id="cancelform" method="post" action="cancelprocess.php" onsubmit="return confirmSubmission();">
 			<div class="pitem"><img src="images/.png" alt="" required=""></div>
 			<div class="pitem">PNR No. or Ticket No.<input type="text" id="bookingId" name="bookingId" value="" required=""></div>
