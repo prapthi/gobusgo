@@ -29,7 +29,7 @@ print "<pre>";
 	print_r($cancelTickets);
 	print "</pre>";
 
-$failcode; = $cancelTickets->status->code;
+$failcode = $cancelTickets->status->code;
 print $failcode;
 if($failcode=='500'){
 	header('location:cancel.php?err=1');
@@ -56,6 +56,8 @@ if ($code2 == "200") {  ?>
 	<div class="success" id="success" style="padding:20px 10px 15px 11px;margin:145px; font-size:22px; line-height:1.3cm; color:#244255;"> Please try again.... </div>
 	
 <?php }
+
+}
 
  ?>
 <?php include('footer.php'); ?>
