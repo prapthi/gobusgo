@@ -57,5 +57,5 @@ if ($code2 == "200") {  ?>
 	
 <?php }
 
-} ?>
+ ?>
 <?php include('footer.php'); ?>
