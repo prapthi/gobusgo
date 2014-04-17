@@ -28,7 +28,7 @@ if(isset($_GET['DR'])) {
 	echo $depart = $_SESSION['depart'];
 	print "<pre>";
 	print_r($response);
-	prin "</pre>";
+	print "</pre>";
 	exit();
 	
 
