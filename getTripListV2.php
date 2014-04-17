@@ -157,9 +157,22 @@ $arr=$result5->stationList;
 					<div style="clear:both"></div>
 				</form>
 			</div><!--- 3--->
-		
-		<div>
+<?php
+function error(){
+$errors = array (
+	1 => "Ticket not confirmed. Please contact with booking id, or book different Seat..."
+	
+);
+$error_id = $_GET['err'];
 
+if (isset($_GET['err'])) {
+	return $errors[$error_id];
+}
+}
+?>		
+		<div style="color:#FF0000;"><?php echo error(); ?></div>
+
+		<div>
 		<table width="100%" height="25" cellspacing="0" cellpadding="0" border="0" class="prex">
 			<tbody>
 				<tr>
