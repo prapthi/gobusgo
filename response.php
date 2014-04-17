@@ -84,7 +84,44 @@ $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId
 	echo $status = $bookTickets->status;
 	$code= $status->code;
 		if($code== '200'){
-			$qry = mysql_query("UPDATE gobusgo_passdetails SET ticket_status='Success'  WHERE bookingId = '$bookingId'");
+		
+			$qry = mysql_query("UPDATE gobusgo_passdetails SET ticket_status='Success' WHERE bookingId = '$bookingId'");
+			require_once('PHPMailer/class.phpmailer.php');
+			
+			$mail             = new PHPMailer(); // defaults to using php "mail()"
+			$mail->IsSendmail(); // telling the class to use SendMail transport
+			$body .= '<html><head><title>GoBusGo Details</title></head>
+							<body>
+								<table width="750" border="0" align="center" cellpadding="0" cellspacing="10">
+									<tr><td style="border:1px solid #666666;">
+										<table>
+											<tr><td>
+												<table width="500px" border="0" align="center" cellpadding="0" cellspacing="0">
+													<tr><td>Booking Id</td><td>:</td><td>'.$bookingId.'</td></tr>
+												</table>
+											</td></tr>
+										</table>
+									</td></tr>
+								</table>
+							</body>
+						</html>';
+			$mail->SetFrom('bgbhuvana@gmail.com.com');
+			$mail->AddReplyTo("bhuvaneswarib@embossdesignstudio.com");
+			/*$mail->AddReplyTo("bgbhuvana@gmail.com");*/
+			$address = "bgbhuvana@gmail.com";
+			$mail->AddAddress($address);
+			$mail->Subject    = " PFA the GoBusGo- Details";
+			$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
+			$mail->MsgHTML($body);
+			$mail->AddAttachment("fpdf/".$fetchseat['bookingId'].".pdf");     // attachment
+			
+			if(!$mail->Send()) {
+			echo "Mailer Error: " . $mail->ErrorInfo;
+			} else {
+				echo "Message sent!";
+			}
+			
+			
 		}else{
 			header('location:getTripListV2.php?err=1');
 		}
