@@ -30,6 +30,11 @@ if(isset($_GET['DR'])) {
 	//print_r($response);
 	print "</pre>";
 	echo $test = $response['ResponseCode'];
+	echo $test1 = $response['ResponseMessage'];
+	echo $test2 = $response['PaymentID'];
+	echo $test3 = $response['MerchantRefNo'];
+	echo $test4 = $response['Amount'];
+
 	
 	exit();
 	
