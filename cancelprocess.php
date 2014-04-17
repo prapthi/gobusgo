@@ -26,14 +26,15 @@ $cancelTickets=$client->CancelTicket($username,$password,$bookingId,$seatArray);
 print "<pre>";
 print_r($cancelTickets);
 print "</pre>";
-exit();
+
 $failcode = $cancelTickets->status->code;
 if($failcode=='401'){
+echo "if";
 	header('location:cancel.php?err=1');
 }elseif($failcode=='200'){
 	$cancellationCharges =$cancelTickets->cancellationChargeDetailsList;
-	
-	
+	echo "else";
+exit();	
 	$status1= $cancelTickets->status;
 	$code1= $status1->code;
 	foreach($cancellationCharges as $values){
