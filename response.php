@@ -26,7 +26,10 @@ if(isset($_GET['DR'])) {
 <?php
 	echo $bookingId = $_SESSION['bookingId'];
 	echo $depart = $_SESSION['depart'];
-	print_r($response); exit();
+	print "<pre>";
+	print_r($response);
+	prin "</pre>";
+	exit();
 	
 
 	
