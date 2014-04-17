@@ -78,7 +78,7 @@ $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId
 	$seat= $status->seatNbr;
 	$travelsPhoneNbr = $bookTickets->travelsPhoneNbr;
 	
-	$status = $bookTickets->status;
+	echo $status = $bookTickets->status;
 	$code= $status->code;
 		if($status== 'Success'){
 		echo "succes";
