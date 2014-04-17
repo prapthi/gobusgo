@@ -85,7 +85,7 @@ $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId
 	$code= $status->code;
 		if($code== '200'){
 		
-			$qry = mysql_query("UPDATE gobusgo_passdetails SET ticket_status='Success' WHERE bookingId = '$bookingId'");
+			$qry = mysql_query("UPDATE gobusgo_passdetails SET Bookingstatus='Booked',ticket_status='Success' WHERE bookingId = '$bookingId'");
 			require_once('PHPMailer/class.phpmailer.php');
 			
 			$mail             = new PHPMailer(); // defaults to using php "mail()"
