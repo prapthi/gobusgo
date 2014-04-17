@@ -126,7 +126,7 @@ $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId
 			} else {
 				echo "Message sent!";
 			}
-			<?php 
+			
 			$html ='';
     // Assign html code into php variable:-
 	$html.= 
