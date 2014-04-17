@@ -26,12 +26,9 @@ if(isset($_GET['DR'])) {
 <?php
 	echo $bookingId = $_SESSION['bookingId'];
 	echo $depart = $_SESSION['depart'];
-	foreach( $response as $value) {
-			echo $ResponseMessage = $value->ResponseMessage;
-			echo $PaymentID = $value->PaymentID;
-			echo $MerchantRefNo = $value->MerchantRefNo;
-			echo $Amount = $value->Amount;
-	}
+	print_r($response); exit();
+	
+
 	
 	
 ?>
