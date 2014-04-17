@@ -84,7 +84,7 @@ $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId
 	echo $status = $bookTickets->status;
 	$code= $status->code;
 		if($code== '200'){
-			$qry = mysql_query("UPDATE gobusgo_passdetails SET ticket_status='$status'  WHERE bookingId = '$bookingId'");
+			$qry = mysql_query("UPDATE gobusgo_passdetails SET ticket_status='Success'  WHERE bookingId = '$bookingId'");
 		}else{
 			header('location:getTripListV2.php?err=1');
 		}
