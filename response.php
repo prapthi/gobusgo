@@ -65,7 +65,7 @@ $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId
 	$seatsbooked = $fetchseat['seatNbr'] ;
 	$bookingId = $fetchseat['bookingId'] ;
 	echo $bookingId;
-	$bookTickets= $client->BookTicket($username,$password,$bookingId);
+	$bookTickets= $client->BookTicket('javaapitest','testing',$bookingId);
 	print "<pre>";
 	print_r($bookTickets);
 	print "</pre>";
