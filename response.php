@@ -76,13 +76,12 @@ $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId
 		$extraSeatInfo =$extrainfo->extraSeatInfo;
 		$seatNbr       =$extrainfo->seatNbr;
 	}	
-		
-		
-	$seat= $status->seatNbr;
 	$travelsPhoneNbr = $bookTickets->travelsPhoneNbr;
 	echo $bookingId;
-	echo $status = $bookTickets->status;
-	$code= $status->code;
+	$status = $bookTickets->status;
+	echo $code= $status->code;
+	
+	
 		if($code== '200'){
 		
 			$qry = mysql_query("UPDATE gobusgo_passdetails SET Bookingstatus='Booked',ticket_status='Success' WHERE bookingId = '$bookingId'");
