@@ -17,13 +17,12 @@ function confirmSubmission(){
 function error(){
 $errors = array (
 	1 => "PNR No is not a valid number!",
-	2 => "Not a valid"
+	2 => "Some Internal Error.. Please try again later",
+	3 => "Your ticket has been cancelled"
 );
 $error_id = $_GET['err'];
 
-if (isset($_GET['err']) && $_GET['err'] == 'foo') {
-	return $errors[$error_id];
-}else{
+if (isset($_GET['err'])) {
 	return $errors[$error_id];
 }
 }
@@ -43,9 +42,7 @@ if (isset($_GET['err']) && $_GET['err'] == 'foo') {
 		</form>
 	</div>
 </div>
-<div class="success" id="success" style="padding:20px 10px 15px 11px;margin:145px; font-size:22px; line-height:1.3cm; color:#244255; display:none;" >
-	Your tickets has been cancelled.... 
-</div>
+
 
 
 
