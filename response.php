@@ -79,6 +79,9 @@ $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId
 	$travelsPhoneNbr = $bookTickets->travelsPhoneNbr;
 	echo $bookingId;
 	$status = $bookTickets->status;
+	print "<pre>";
+	print_r($status);
+	print "</pre>";
 	echo $code= $status->code;
 	
 	
