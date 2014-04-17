@@ -126,7 +126,7 @@ $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId
 			} else {
 				echo "Message sent!";
 			}
-			
+			<?php 
 			$html ='';
     // Assign html code into php variable:-
 	$html.= 
@@ -250,75 +250,7 @@ function printPage(printContent) {
 </div></td></tr></table>';
 
 ?>
-<div class="printts">
-	<a href="javascript:void(0);" onClick="printPage(printsection.innerHTML)"><img src="images/printer.jpg" /></a>	
-</div>
-<div class="pdf">
-<?php phptopdf_html($html,'pdf/',$fetchseat['bookingId'].'.pdf');
-
-echo '<a href="fpdf/'.$fetchseat['bookingId'].'.pdf" target="_blank"><img src="images/pdf.png"></a>'; 
-//echo "<a href='pdf/$fetchseat['cust_book_id'].pdf'><img src='images/pdf.png'></a>";
-//echo "<a href='downloads/$fetchseat['cust_book_id'] .'_'. $fetchseat['contact_name'] . '.pdf' target='_blank'><img src='images/pdf.png'></a>";
- ?>
-</div>
-<?php 
-  if($code= "200"){  ?>
-	<div id="printsection">
-		<form name="contactdet" id="contactdet" action="" method="post" />
-				<table>
-						<th>CANCELLATION POLICY</th>
-						<th style="font:26px Arial,tahoma,sans-serif; padding:8px 88px;"><?php echo $provider; ?></th>
-						<tr><td>
-								<?php
-									foreach($cancellist as $value){
-									echo "<li style='margin:3px 25px 15px;list-style-type:square;'>".$value."</li>" ;
-									}
-								?>
-						</td></tr>
-				</table>
-		</form>
-	
-	<div class="outtab">
-		<form name="contactdet" id="contactdet" action="" method="post" />
-			<input type="hidden" name="bookingId" id="contactdet" value="<?php echo $bookingId; ?>" />
-			<table id="cont">
-				<th> PASSENGER DETAILS</th>
-				<tr><td>Operator PNR</td><td class="colon">:</td><td><?php echo "<div style ='font:26px Arial,tahoma,sans-serif;'>$extraSeatInfo</div>" ?></td></tr>
-				<tr><td>Contact Name</td><td class="colon">:</td><td><?php echo "<div style ='font:26px Arial,tahoma,sans-serif;'>$name</div>"; ?></td></tr>
-				<?php  
-					$parsed = json_decode('['.$pass_name.']');
-					foreach($parsed as $value){  ?>
-					<tr><td>Passenger</td><td class="colon">:</td><td><?php echo $value->passname; ?></td></tr>
-					<tr><td>Age</td><td class="colon">:</td><td><?php echo $value->age; ?></td></tr>
-					<tr><td>Gender</td><td class="colon">:</td><td><?php echo $value->gender; ?></td></tr>
-					<tr><td>Seat</td><td class="colon">:</td><td><?php echo $value->seats; ?></td></tr>
-				<?php	}  ?>
-				
-				
-				<tr><td>Address</td><td class="colon">:</td><td><?php echo $address. ', '. $city . ', '.$pincode ; ?></td></tr>  
-				<tr><td>State</td><td class="colon">:</td><td><?php echo $state; ?></td></tr>
-				<tr><td>Mobile</td><td class="colon">:</td><td><?php echo $mobile; ?></td></tr>
-				<tr><td>Email</td><td class="colon">:</td><td><?php echo $email; ?></td></tr>
-				<tr><td>From</td><td class="colon">:</td><td><?php echo $fromStation; ?></td></tr>
-				<tr><td>To</td><td class="colon">:</td><td><?php echo $toStation; ?></td></tr>
-				<tr><td>Journey Date</td><td class="colon">:</td><td><?php echo $journeyDate; ?></td></tr>
-				<tr><td>Provider</td><td class="colon">:</td><td><?php echo $provider; ?></td></tr>
-				<tr><td>Provider Type</td><td class="colon">:</td><td><?php echo $bus_type; ?></td></tr>
-				<tr><td>Boarding Point</td><td class="colon">:</td><td><?php echo $boarding_name; ?></td></tr>
-				<tr><td>Booking Id</td><td class="colon">:</td><td><?php echo $cust_book_id; ?></td></tr>
-				<tr><td>TicketGoose PNR</td><td class="colon">:</td><td><?php echo $bookingId; ?></td></tr>
-				<tr><td>Total Seats</td><td class="colon">:</td><td><?php echo $noOfSeats; ?></td></tr>
-				<tr><td>Total Price</td><td class="colon">:</td><td><?php echo $totalFare; ?></td></tr>
-				<tr><td></td></tr>
-				<th>CONTACT DETAILS</th>
-				<tr><td colspan=3><?php echo $travelsPhoneNbr; ?></td></tr>
-			</table> 
-		</form>
-	</div>
-
-</div>
-	<?php
-	}
+		
 			
 		}else{
 			header('location:getTripListV2.php?err=1');
