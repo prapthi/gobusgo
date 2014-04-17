@@ -5,6 +5,8 @@ include('username.php');
 
 <?php
 if(isset($_POST['submit'])){
+	print_r($_POST);
+exit();
 	$bookingId = $_POST['bookingId'];
 	$pmail =$_POST['pmail'];
 	$ptel =$_POST['ptel'];
