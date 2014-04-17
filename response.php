@@ -66,6 +66,9 @@ $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId
 	$bookingId = $fetchseat['bookingId'] ;
 	
 	$bookTickets= $client->BookTicket($username,$password,$bookingId);
+	print "<pre>";
+	print_r($bookTickets);
+	print "</pre>";
 	$cancellist = $bookTickets->cancellationDescList;
 	$extraSeatList = $bookTickets->extraSeatInfoList;
 	
@@ -79,7 +82,7 @@ $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId
 	$travelsPhoneNbr = $bookTickets->travelsPhoneNbr;
 	
 	echo $status = $bookTickets->status;
-	$code= $status->code;
+	echo $code= $status->code;
 		if($status== 'Success'){
 		echo "succes";
 			$qry = mysql_query("UPDATE gobusgo_passdetails SET ticket_status='$status'  WHERE bookingId = '$bookingId'");
