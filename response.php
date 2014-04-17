@@ -27,7 +27,7 @@ if(isset($_GET['DR'])) {
 	echo $bookingId = $_SESSION['bookingId'];
 	echo $depart = $_SESSION['depart'];
 	print "<pre>";
-	print_r($response);
+	//print_r($response);
 	print "</pre>";
 	echo $test = $response['ResponseCode'];
 	
