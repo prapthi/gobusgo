@@ -66,6 +66,9 @@ $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId
 	$bookingId = $fetchseat['bookingId'] ;
 	
 	$bookTickets= $client->BookTicket($username,$password,$bookingId);
+	print "<pre>";
+	print_r($bookTickets);
+	print "</pre>";
 	$cancellist = $bookTickets->cancellationDescList;
 	$extraSeatList = $bookTickets->extraSeatInfoList;
 	
