@@ -34,7 +34,6 @@ echo "if";
 }elseif($failcode=='200'){
 	$cancellationCharges =$cancelTickets->cancellationChargeDetailsList;
 	echo "else";
-exit();	
 	$status1= $cancelTickets->status;
 	$code1= $status1->code;
 	foreach($cancellationCharges as $values){
@@ -58,6 +57,7 @@ if ($code2 == "200") {
 <?php }
 
 }else{
+	echo "elsecss";
 
 	header('location:cancel.php?err=2');
 }
