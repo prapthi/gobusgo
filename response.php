@@ -339,6 +339,7 @@ echo "booking failed";
 			echo "Payment is failed";
 		
 		}
+		}
 ?>		
 	
 </html>
