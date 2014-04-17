@@ -34,7 +34,6 @@ $("#depart").datepicker({
 		minDate: 0,
 onSelect: function(dateText, inst) {
 	var date = $(this).val();
-	//alert(date); 
 	var time = $('#time').val();
    $("#modate").val(date);
 }
@@ -65,7 +64,6 @@ if($_POST){
 	$origname = $_SESSION['origname'];
 	$destiname = $_SESSION['destiname'];
 }
-
 $getTripList=$client->GetTripListV2($username,$password,$originid,$destiid,$depart); 
 $status=$getTripList->status;
 $failCode= $status->code;
@@ -101,10 +99,20 @@ $arr=$result5->stationList;
 			
 			<div id="1" style="display:none;"></div>
 			<div id="3" style="display:none;"> 
-				<form action="busLoad.php" name="findbus" method="post" style="padding-left: 0; padding-top:0; width:auto; height:auto;" >
+				<form action="busLoad.php" name="findbus" method="post">
 					<table> <tr> <td><span class="lispan">From</span>
 						<select id="originid" title="Origin" name="originid" onchange="document.getElementById('orig').value=this.value">
 								<option selected="selected" value="">--- I'am Leaving From ---</option>
+									<option value="298|Ahmedabad">Ahmedabad</option>
+									<option value="76|Bangalore">Bangalore</option>
+									<option value="71|Chennai">Chennai</option>
+									<option value="72|Madurai">Madurai</option>
+									<option value="100|Trichy">Trichy</option>
+									<option value="75|Coimbatore">Coimbatore</option>
+									<option value="303|Delhi">Delhi</option>
+									<option value="251|Goa">Goa</option>
+									<option value="84|Hyderabad">Hyderabad</option>
+									<option disabled="disabled" value="0">---------</option>
 								<?php 
 									foreach ( $arr as $term ) {  
 									$fromid = $term->stationId; 
@@ -119,7 +127,17 @@ $arr=$result5->stationList;
 							<input id='orig' type='hidden' name="orig" value=''>
 					</td><td><span class="lispan">To</span>
 						<select id="destiid" title="Desti" name="destiid" onchange="document.getElementById('desti').value=this.value">
-								<option selected="selected" value="">--- Reaching To ---</option>
+					<option selected="selected" value="">--- Reaching To ---</option>
+					<option value="298|Ahmedabad">Ahmedabad</option>
+					<option value="76|Bangalore">Bangalore</option>
+					<option value="71|Chennai">Chennai</option>
+					<option value="72|Madurai">Madurai</option>
+					<option value="100|Trichy">Trichy</option>
+					<option value="75|Coimbatore">Coimbatore</option>
+					<option value="303|Delhi">Delhi</option>
+					<option value="251|Goa">Goa</option>
+					<option value="84|Hyderabad">Hyderabad</option>
+					<option disabled="disabled" value="0">---------</option>
 								<?php   
 									foreach ( $arr as $term ) {  
 									$toid = $term->stationId; 
@@ -127,14 +145,14 @@ $arr=$result5->stationList;
 									$Toname = ucwords($toname);
 								?> 
 								
-	<option  value="<?php echo $toid.'|'.$Toname; ?>" <?php echo($Toname==$destiname)?'selected':''?>><?php echo $Toname; ?></option><br />
-								<?php }?>
+	<option  value="<?php echo $toid.'|'.$Toname; ?>" <?php echo($Toname==$destiname)?'selected':''?>><?php echo $Toname; ?></option>								<?php }?>
 							</select>
 							<input id='desti' type='hidden' name="desti" value=''>
 					</td><td>Date 0f Journey <input  name="depart" value="<?php echo $depart;?>" id="depart" class="depart" >	
 						<input type="hidden" id="modate" class="modate" value='' />	
-						<input type="hidden" name="search" value="search"/>
-					<td><input type="submit" name="search1" value="Search" class="subt"></td>
+						<input type="hidden" name="search" value="search"/></td>
+						<td><input type="submit" name="search1" value="Search" class="subt"></td>
+						</tr>
 					</table>
 					<div style="clear:both"></div>
 				</form>
@@ -180,7 +198,7 @@ $arr=$result5->stationList;
 <?php if ($failCode== "402" ){   ?>
 		<div style="padding:20px 10px 15px 11px;margin:145px; font-size:22px; line-height:1.3cm; color:#244255;"> No tickets were found for this route.... Please contact us from the details mentioned on the home page... We will assist you...</div>
 	  <?php }else{ ?>
-		<table id="myTable" class="tablesorter" cellpadding="0" cellspacing="0"> 
+		<table id="my-table-sorter" class="tablesorter" cellpadding="0" cellspacing="0"> 
 			<thead>
 				<tr>  
 					<th class="sp1">Travels<img src="images/sort_icons.png" alt=""></th>  
@@ -209,15 +227,14 @@ $arr=$result5->stationList;
 /*	onsubmit='return submitForm();*/		
 			
 			//<input type='hidden' value='ticketgoose' class='apitype'>  ?>
-			<tr><td colspan="6">
-			<div class="result">
-			<table id="myTable" class="tablesorter" width="100%" cellspacing="0" cellpadding="0" border="0" class="nonacseater flight_search_details_box">
-					<tbody>
+			<tr><td colspan="6" class="result">
+			
+			<table id="myTable" class="tablesorter" width="100%" cellspacing="0" cellpadding="0" border="0">
 								<tr height="60">
 									
-								    <td width=""  class="sp1" ><?php echo $provider; ?></td>
-								    <td width="" class="sp2"><?php echo $type;?></td>
-								    <td width="" class="sp3">
+								    <td class="sp1" ><?php echo $provider; ?></td>
+								    <td class="sp2"><?php echo $type;?></td>
+								    <td class="sp3">
 								<?php echo $departtime; ?>
 
 											
@@ -249,9 +266,9 @@ $arr=$result5->stationList;
 								   
 								</tr>
 								<tr><td colspan="12"><div class="bus_seat"> </div></td></tr>
-							 </tbody>
+							
 							</table>
-				</div>
+				
 			</td></tr>
 						   
 	<?php } } ?> 
@@ -260,53 +277,64 @@ $arr=$result5->stationList;
 			<?php }?>
 	</div>
 	
-<script>
-$(function()
-	{
-	$('.book_form').submit(function()
-	{	
-		$provider=$(this).find('.provider').val();
-		$type=$(this).find('.type').val();
-		$netprice=$(this).find('.netprice').val();
-		$selling_price=$(this).find('.selling_price').val();
-		$bording_points=$(this).find('.bording_points').val();
-		$scheduleId=$(this).find('.scheduleId').val();
-		$departtime=$(this).find('.departtime').val();
-		$originid=$(this).find('.originid').val();
-		$destiid=$(this).find('.destiid').val();
-		$depart=$(this).find('.depart').val();
-		$arriv_time=$(this).find('.arriv_time').val();
-		$apitype = $(this).find('.apitype').val();
-		$cancel_policy = $(this).find('.get_cancel').val();
-		$origname=$(this).find('.origname').val();
-		$destiname=$(this).find('.destiname').val();
+<script type="text/javascript">
+$(function(){
+	$('.book_form').submit(function(){	
+	
+
+		var provider=$(this).find('.provider').val();
+		var type=$(this).find('.type').val();
+		var netprice=$(this).find('.netprice').val();
+		var selling_price=$(this).find('.selling_price').val();
+		var bording_points=$(this).find('.bording_points').val();
+		var scheduleId=$(this).find('.scheduleId').val();
+		var departtime=$(this).find('.departtime').val();
+		var originid=$(this).find('.originid').val();
+		 var destiid=$(this).find('.destiid').val();
+		var depart=$(this).find('.depart').val();
+		var arriv_time=$(this).find('.arriv_time').val();
+		var apitype = $(this).find('.apitype').val();
+		var cancel_policy = $(this).find('.get_cancel').val();
+		var origname=$(this).find('.origname').val();
+		var destiname=$(this).find('.destiname').val();
 		
 		$('.bus_seat').html('');
 		$load=$(this).parents('.result').find('.bus_seat');
 		$load.empty().html('<div style="text-align:center"><img src="images/loader.gif" height="80px" width="80px"></div>');
 		$.post('seatAvailability.php',{
-			'provider':$provider, 
-			'type':$type,
-			'cancel_p':$cancel_policy,
-			'scheduleId':$scheduleId, 
-			'departtime':$departtime, 
-			'originid':$originid,
-			'destiid':$destiid,
-			'depart':$depart,
-			'netprice':$netprice,
-			'selling_price':$selling_price,
-			'bording_points':$bording_points,
-			'arrival_time':$arriv_time,
-			'origname':$origname,
-			'destiname':$destiname
+			'provider':provider, 
+			'type':type,
+			'cancel_p':cancel_policy,
+			'scheduleId':scheduleId, 
+			'departtime':departtime, 
+			'originid':originid,
+			'destiid':destiid,
+			'depart':depart,
+			'netprice':netprice,
+			'selling_price':selling_price,
+			'bording_points':bording_points,
+			'arrival_time':arriv_time,
+			'origname':origname,
+			'destiname':destiname
 		  },function(data){
 			$load.html(data);
 		});
 		
 	});	
 	});
-</script>
 
+    
+</script>
+<!--<script src="js/table_sort/jquery.tablesorter.min.js" type="text/javascript"></script> 
+<script src="js/table_sort/jquery.tablesorter.js.patch" type="text/javascript"></script> 
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#my-table-sorter").tablesorter();
+});
+</script> -->
 
 <script type="text/javascript">
 function modify(id)
