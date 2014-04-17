@@ -23,9 +23,9 @@ if(isset($_POST['submit'])){
 <?php
 $cancelTickets=$client->CancelTicket($username,$password,$bookingId,$seatArray); 
 $failcode = $cancelTickets->status->code;
-if($failcode!="200"){
+if($failcode=='401'){
 	header('location:cancel.php?err=1');
-}else{
+}elseif($failcode=='200'){
 	$cancellationCharges =$cancelTickets->cancellationChargeDetailsList;
 	
 	
@@ -41,17 +41,19 @@ if($failcode!="200"){
 	$status2= $confirmcancel->status;
 	$code2= $status2->code;
 
-if ($code2 == "200") { 
-	$qry = mysql_query("UPDATE gobusgo_passdetails SET Bookingstatus = 'Cancelled' WHERE bookingId='$bookingId'");
-
- ?>
-	<div class="success" id="success" style="padding:20px 10px 15px 11px;margin:145px; font-size:22px; line-height:1.3cm; color:#244255;"> Tickets has been cancelled.... </div>
+if ($code2 == "200") {
+	header('location:cancel.php?err=3');
+  ?>
+<?php }elseif($code2!="200") { 
+	header('location:cancel.php?err=2');
+?>
 	
-<?php }elseif($code2!="200") { ?>
-	<div class="success" id="success" style="padding:20px 10px 15px 11px;margin:145px; font-size:22px; line-height:1.3cm; color:#244255;"> Please try again.... </div>
 	
 <?php }
 
+}else{
+
+	header('location:cancel.php?err=2');
 }
 
  ?>
