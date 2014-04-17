@@ -160,7 +160,8 @@ $arr=$result5->stationList;
 <?php
 function error(){
 $errors = array (
-	1 => "Ticket not confirmed. Please contact with booking id, or book different Seat..."
+	1 => "Ticket not confirmed. Please contact with booking id, or book different Seat...",
+	2 => "Your payment is not successfull... Please try again with your booking"
 	
 );
 $error_id = $_GET['err'];
