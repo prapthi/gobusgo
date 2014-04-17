@@ -249,7 +249,7 @@ function printPage(printContent) {
 
 </div></td></tr></table>';
 
-?>
+
 		
 			
 		}else{
