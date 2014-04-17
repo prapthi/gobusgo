@@ -29,6 +29,8 @@ if(isset($_GET['DR'])) {
 	print "<pre>";
 	print_r($response);
 	print "</pre>";
+	echo $test = $response['ResponseCode'];
+	
 	exit();
 	
 
