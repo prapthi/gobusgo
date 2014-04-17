@@ -5,8 +5,7 @@ include('username.php');
 
 <?php
 if(isset($_POST['submit'])){
-	print_r($_POST);
-exit();
+
 	$bookingId = $_POST['bookingId'];
 	$pmail =$_POST['pmail'];
 	$ptel =$_POST['ptel'];
@@ -24,6 +23,10 @@ exit();
 ?>
 <?php
 $cancelTickets=$client->CancelTicket($username,$password,$bookingId,$seatArray); 
+print "<pre>";
+print_r($cancelTickets);
+print "</pre>";
+exit();
 $failcode = $cancelTickets->status->code;
 if($failcode=='401'){
 	header('location:cancel.php?err=1');
