@@ -25,7 +25,7 @@ if(isset($_GET['DR'])) {
 ?>
 
 <?php
-/*$bookingId = $_SESSION['bookingId'];
+$bookingId = $_SESSION['bookingId'];
 		$depart = $_SESSION['depart'];
 
 
@@ -116,7 +116,7 @@ $query = mysql_query("UPDATE gobusgo_passdetails set payment_id='$PaymentID', pa
 			$mail->SetFrom('sakthivel@prapthi.com');
 			$mail->AddReplyTo("bhuvaneswarib@embossdesignstudio.com");
 			/*$mail->AddReplyTo("bgbhuvana@gmail.com");*/
-		/*	$address = "bgbhuvana@gmail.com";
+			$address = "bgbhuvana@gmail.com";
 			$mail->AddAddress($address);
 			$mail->Subject    = " PFA the GoBusGo- Details";
 			$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
@@ -140,7 +140,7 @@ $query = mysql_query("UPDATE gobusgo_passdetails set payment_id='$PaymentID', pa
 	.outtab{
 		background-color: rgb(224, 224, 224); 
 		/*padding:10px 20px 15px 12px; */
-/*		width:814px;
+		width:814px;
 		margin: 16px 67px;
 		border-style:outset;
 	}
@@ -192,7 +192,7 @@ function printPage(printContent) {
                 visibility:visible;
             }
             #printable { /* aligning the printable area */
-     /*           position:absolute;
+                position:absolute;
                 left:40;
                 top:40;
             }
@@ -259,7 +259,7 @@ function printPage(printContent) {
 	<a href="javascript:void(0);" onClick="printPage(printsection.innerHTML)"><img src="images/printer.jpg" /></a>	
 </div>
 <div class="pdf">
-<?php phptopdf_html($html,'pdf/',$fetchseat['bookingId'].'.pdf');
+<?php phptopdf_html($html,'fpdf/',$fetchseat['bookingId'].'.pdf');
 
 echo '<a href="fpdf/'.$fetchseat['bookingId'].'.pdf" target="_blank"><img src="images/pdf.png"></a>'; 
 //echo "<a href='pdf/$fetchseat['cust_book_id'].pdf'><img src='images/pdf.png'></a>";
@@ -325,7 +325,7 @@ echo '<a href="fpdf/'.$fetchseat['bookingId'].'.pdf" target="_blank"><img src="i
 <?php
 }// success 		
 }else{
-	echo "booking failed";
+echo "booking failed";
 }
 			
 ?>		
