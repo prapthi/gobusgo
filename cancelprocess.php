@@ -2,10 +2,7 @@
 include('header.php');
 include('username.php');
 ?>
-<?php 
-ob_start();
-session_start();
-?>
+
 <?php
 if(isset($_POST['submit'])){
 	$bookingId = $_POST['bookingId'];
@@ -26,10 +23,12 @@ if(isset($_POST['submit'])){
 <?php
 $cancelTickets=$client->CancelTicket($username,$password,$bookingId,$seatArray); 
 $failcode = $cancelTickets->status->code;
-if($failcode=='500'){
+if($failcode!="200"){
 	header('location:cancel.php?err=1');
 }else{
 	$cancellationCharges =$cancelTickets->cancellationChargeDetailsList;
+	
+	
 	$status1= $cancelTickets->status;
 	$code1= $status1->code;
 	foreach($cancellationCharges as $values){
@@ -42,7 +41,10 @@ if($failcode=='500'){
 	$status2= $confirmcancel->status;
 	$code2= $status2->code;
 
-if ($code2 == "200") {  ?>
+if ($code2 == "200") { 
+	$qry = mysql_query("UPDATE gobusgo_passdetails SET Bookingstatus = 'Cancelled' WHERE bookingId='$bookingId'");
+
+ ?>
 	<div class="success" id="success" style="padding:20px 10px 15px 11px;margin:145px; font-size:22px; line-height:1.3cm; color:#244255;"> Tickets has been cancelled.... </div>
 	
 <?php }elseif($code2!="200") { ?>
