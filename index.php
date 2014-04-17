@@ -3,7 +3,7 @@ ob_start();
 session_start();
 include('username.php');
 $result5=$client->getStationList($username,$password); 
-$arr=$result5->stationList; 
+$arr=$result5->stationList;
 ?>
 
 <!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">-->
@@ -78,7 +78,12 @@ $arr=$result5->stationList;
 			</div>
 			<div class="icon">
 				<div>
-					<a href="signin.php">Signin</a>|<a href="signup.php">Signup</a></div>
+				<?php if(isset($_SESSION['username'])){ ?>
+					Welcome, <b><?php echo $_SESSION['username'];?>!</b> <a href="signout.php">Signout</a>	
+				<?php }else{ ?>
+					<a href="signin.php">Signin</a>|<a href="agent.php">Signup</a>
+				<?php } ?>
+					</div>
 					<span>Ride with us:</span>
 					<a href=""><img src="images/f-icon.png" alt=""></a>
 					<a href=""><img src="images/ticon.png" alt=""></a>
@@ -89,8 +94,11 @@ $arr=$result5->stationList;
 					<li id="index"><a href="index.php">Home</a></li>
 					<li><a href="about.php">About</a></li>
 					<li><a href="ticket.php">Print Ticket</a></li>
-					<li><a href="agent.php">Payment</a></li>
 					<li><a href="cancel.php">Cancellation</a></li>
+					<?php if(isset($_SESSION['username'])){ ?>
+					<li><a href="myAccount.php">My Account</a></li>
+					<li><a href="agent.php">New Agent</a></li>
+					<?php  } ?>
 					<li><a href="contact.php">Contact US</a></li>
 				</ul>
 			</div>
@@ -107,6 +115,17 @@ $arr=$result5->stationList;
 						<div class="fild proc">From
 							<select id="originid" class="bus_input" title="Origin" name="originid">
 								<option selected="selected" value="">--- I'am Leaving From ---</option>
+									<option value="298|Ahmedabad">Ahmedabad</option>
+									<option value="76|Bangalore">Bangalore</option>
+									<option value="71|Chennai">Chennai</option>
+									<option value="72|Madurai">Madurai</option>
+									<option value="100|Trichy">Trichy</option>
+									<option value="75|Coimbatore">Coimbatore</option>
+									<option value="303|Delhi">Delhi</option>
+									<option value="251|Goa">Goa</option>
+									<option value="84|Hyderabad">Hyderabad</option>
+									<option disabled="disabled" value="0">---------</option>
+								
 								<?php 
 									foreach ( $arr as $term ) {  
 									$fromid = $term->stationId; 
@@ -121,6 +140,17 @@ $arr=$result5->stationList;
 						<div class="fild proc">To
 						<select id="destiid"class="w400"title="destiid" name="destiid">
 								<option selected="selected" value="">--- Reaching To ---</option>
+<option value="298|Ahmedabad">Ahmedabad</option>
+<option value="76|Bangalore">Bangalore</option>
+<option value="71|Chennai">Chennai</option>
+<option value="72|Madurai">Madurai</option>
+<option value="100|Trichy">Trichy</option>
+<option value="75|Coimbatore">Coimbatore</option>
+<option value="303|Delhi">Delhi</option>
+<option value="251|Goa">Goa</option>
+<option value="84|Hyderabad">Hyderabad</option>
+<option disabled="disabled" value="0">---------</option>
+								
 								<?php   
 									foreach ( $arr as $term ) {  
 									$toid = $term->stationId; 
