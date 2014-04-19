@@ -1,6 +1,7 @@
 <?php 
 ob_start();
 session_start();
+ini_set('display_errors', 'On');
 include('username.php');
 include_once('phpToPDF.php');
 include('header.php');
