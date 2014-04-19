@@ -2,8 +2,11 @@
 ob_start();
 session_start();
 
- error_reporting(E_ALL);
-ini_set('display_errors', True);
+/* error_reporting(E_ALL);
+ini_set('display_errors', True);*/
+
+ini_set("display_errors", "1");
+error_reporting(-1);
 
 include('username.php');
 include_once('phpToPDF.php');
@@ -246,21 +249,4 @@ function printPage(printContent) {
 				<tr><td>Total Seats</td><td class="colon">:</td><td>'.$noOfSeats.'</td></tr>
 				<tr><td>Total Price</td><td class="colon">:</td><td>'.$totalFare.'</td></tr>
 				<tr><td  colspan="3">&nbsp;</td></tr>
-				<tr><th colspan="3">CONTACT DETAILS</th></tr>
-				<tr><td colspan="3" style="word-wrap:break-word;">'.$travelsPhoneNbr.'</td></tr>
-			</table>  
-	 
-
-</div></td></tr></table>';
-
-
-		
-			
-		}else{
-			header('location:getTripListV2.php?err=1');
-		}
-}else{
-echo "location:getTripListV2.php?err=2";
-
-}	
-?>
+				<tr><th colspan="3">CONTACT DETAILS
