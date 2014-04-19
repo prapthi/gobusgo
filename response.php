@@ -26,16 +26,12 @@ if(isset($_GET['DR'])) {
 
 <?php
 $bookingId = $_SESSION['bookingId'];
-		$depart = $_SESSION['depart'];
-
-
-		foreach( $response as $value) {
-			$ResponseMessage = $value->ResponseMessage;
-			$PaymentID = $value->PaymentID;
-			$MerchantRefNo = $value->MerchantRefNo;
-			$Amount = $value->Amount;
-			
-			
+	$depart = $_SESSION['depart'];
+	$ResponseCode = $response['ResponseCode'];
+	$ResponseMessage = $response['ResponseMessage'];
+	$PaymentID = $response['PaymentID'];
+	$MerchantRefNo = $response['MerchantRefNo'];
+	$Amount = $response['Amount'];			
 			
 			if($ResponseMessage == 'Transaction Successful' && $PaymentID!=''){
 				
