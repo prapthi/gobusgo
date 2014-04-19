@@ -1,13 +1,6 @@
 <?php 
 ob_start();
 session_start();
-
-/* error_reporting(E_ALL);
-ini_set('display_errors', True);*/
-
-ini_set("display_errors", "1");
-error_reporting(-1);
-
 include('username.php');
 include_once('phpToPDF.php');
 include('header.php');
@@ -30,18 +23,26 @@ if(isset($_GET['DR'])) {
 	 }
 }
 ?>
+
 <?php
-	$bookingId = $_SESSION['bookingId'];
-	$depart = $_SESSION['depart'];
-	$ResponseCode = $response['ResponseCode'];
-	$ResponseMessage = $response['ResponseMessage'];
-	$PaymentID = $response['PaymentID'];
-	$MerchantRefNo = $response['MerchantRefNo'];
-	$Amount = $response['Amount'];
-if($ResponseMessage == 'Transaction Successful' && $PaymentID!=''){
+$bookingId = $_SESSION['bookingId'];
+		$depart = $_SESSION['depart'];
+
+
+		foreach( $response as $value) {
+			$ResponseMessage = $value->ResponseMessage;
+			$PaymentID = $value->PaymentID;
+			$MerchantRefNo = $value->MerchantRefNo;
+			$Amount = $value->Amount;
+			
+			
+			
+			if($ResponseMessage == 'Transaction Successful' && $PaymentID!=''){
+				
 $query = mysql_query("UPDATE gobusgo_passdetails set payment_id='$PaymentID', payment_status='Paid', merchant_ref_no='$MerchantRefNo'  WHERE bookingId = '$bookingId'");
 
-$selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId' ";
+
+	$selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId' ";
 	$sql = mysql_query($selectqry) or die(mysql_error());
 	$fetchseat = mysql_fetch_assoc($sql);
 	
@@ -72,10 +73,7 @@ $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId
 	$seatsbooked = $fetchseat['seatNbr'] ;
 	$bookingId = $fetchseat['bookingId'] ;
 	
-	$bookTickets= $client->BookTicket('javaapitest','testing',$bookingId);
-	print "<pre>";
-	print_r($bookTickets);
-	print "</pre>";
+	$bookTickets= $client->BookTicket($username,$password,$bookingId);
 	$cancellist = $bookTickets->cancellationDescList;
 	$extraSeatList = $bookTickets->extraSeatInfoList;
 	
@@ -87,18 +85,15 @@ $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId
 		
 	$seat= $status->seatNbr;
 	$travelsPhoneNbr = $bookTickets->travelsPhoneNbr;
-	echo $bookingId;
-	echo $status = $bookTickets->status;
+	
+	$status = $bookTickets->status;
 	$code= $status->code;
-		if($code== '200'){
+	if($code== '200'){
+		// update qery for  ticket status 
 		
-			$qry = mysql_query("UPDATE gobusgo_passdetails SET Bookingstatus='Booked',ticket_status='Success' WHERE bookingId = '$bookingId'");
-			if($qry){
-				echo "success";
-			}else{
-			
-				mysql_error();
-			}
+		$qry = mysql_query("UPDATE gobusgo_passdetails SET operator_id= $extraSeatInfo, ticket_status= $status  WHERE bookingId = '$bookingId'");
+		
+		//mail function
 			require_once('PHPMailer/class.phpmailer.php');
 			
 			$mail             = new PHPMailer(); // defaults to using php "mail()"
@@ -132,7 +127,9 @@ $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId
 			echo "Mailer Error: " . $mail->ErrorInfo;
 			} else {
 				echo "Message sent!";
-			}
+			}?>
+			
+			
 			<?php 
 			$html ='';
     // Assign html code into php variable:-
@@ -222,9 +219,6 @@ function printPage(printContent) {
 				
 				<tr><td>Operator PNR</td><td class="colon">:</td><td> <div style ="font:26px Arial,tahoma,sans-serif;">'.$extraSeatInfo.'</div></td></tr>
 				<tr><td>Contact Name</td><td class="colon">:</td><td><div style ="font:26px Arial,tahoma,sans-serif;">'.$name.'</div></td></tr>';
-					
-				
-					
 					$parsed = json_decode('['.$pass_name.']');
 					foreach($parsed as $value){  
 						$html.=' <tr><td>Passenger</td><td class="colon">:</td><td>'.$value->passname.'</td></tr>
@@ -249,4 +243,98 @@ function printPage(printContent) {
 				<tr><td>Total Seats</td><td class="colon">:</td><td>'.$noOfSeats.'</td></tr>
 				<tr><td>Total Price</td><td class="colon">:</td><td>'.$totalFare.'</td></tr>
 				<tr><td  colspan="3">&nbsp;</td></tr>
-				<tr><th colspan="3">CONTACT DETAILS
+				<tr><th colspan="3">CONTACT DETAILS</th></tr>
+				<tr><td colspan="3" style="word-wrap:break-word;">'.$travelsPhoneNbr.'</td></tr>
+			</table>  
+	 
+
+</div></td></tr></table>';
+
+?>
+<div class="printts">
+	<a href="javascript:void(0);" onClick="printPage(printsection.innerHTML)"><img src="images/printer.jpg" /></a>	
+</div>
+<div class="pdf">
+<?php phptopdf_html($html,'pdf/',$fetchseat['bookingId'].'.pdf');
+
+echo '<a href="fpdf/'.$fetchseat['bookingId'].'.pdf" target="_blank"><img src="images/pdf.png"></a>'; 
+//echo "<a href='pdf/$fetchseat['cust_book_id'].pdf'><img src='images/pdf.png'></a>";
+//echo "<a href='downloads/$fetchseat['cust_book_id'] .'_'. $fetchseat['contact_name'] . '.pdf' target='_blank'><img src='images/pdf.png'></a>";
+ ?>
+</div>
+<?php 
+  if($code= "200"){  ?>
+	<div id="printsection">
+		<form name="contactdet" id="contactdet" action="" method="post" />
+				<table>
+						<th>CANCELLATION POLICY</th>
+						<th style="font:26px Arial,tahoma,sans-serif; padding:8px 88px;"><?php echo $provider; ?></th>
+						<tr><td>
+								<?php
+									foreach($cancellist as $value){
+									echo "<li style='margin:3px 25px 15px;list-style-type:square;'>".$value."</li>" ;
+									}
+								?>
+						</td></tr>
+				</table>
+		</form>
+	
+	<div class="outtab">
+		<form name="contactdet" id="contactdet" action="" method="post" />
+			<input type="hidden" name="bookingId" id="contactdet" value="<?php echo $bookingId; ?>" />
+			<table id="cont">
+				<th> PASSENGER DETAILS</th>
+				<tr><td>Operator PNR</td><td class="colon">:</td><td><?php echo "<div style ='font:26px Arial,tahoma,sans-serif;'>$extraSeatInfo</div>" ?></td></tr>
+				<tr><td>Contact Name</td><td class="colon">:</td><td><?php echo "<div style ='font:26px Arial,tahoma,sans-serif;'>$name</div>"; ?></td></tr>
+				<?php  
+					$parsed = json_decode('['.$pass_name.']');
+					foreach($parsed as $value){  ?>
+					<tr><td>Passenger</td><td class="colon">:</td><td><?php echo $value->passname; ?></td></tr>
+					<tr><td>Age</td><td class="colon">:</td><td><?php echo $value->age; ?></td></tr>
+					<tr><td>Gender</td><td class="colon">:</td><td><?php echo $value->gender; ?></td></tr>
+					<tr><td>Seat</td><td class="colon">:</td><td><?php echo $value->seats; ?></td></tr>
+				<?php	}  ?>
+				
+				
+				<tr><td>Address</td><td class="colon">:</td><td><?php echo $address. ', '. $city . ', '.$pincode ; ?></td></tr>  
+				<tr><td>State</td><td class="colon">:</td><td><?php echo $state; ?></td></tr>
+				<tr><td>Mobile</td><td class="colon">:</td><td><?php echo $mobile; ?></td></tr>
+				<tr><td>Email</td><td class="colon">:</td><td><?php echo $email; ?></td></tr>
+				<tr><td>From</td><td class="colon">:</td><td><?php echo $fromStation; ?></td></tr>
+				<tr><td>To</td><td class="colon">:</td><td><?php echo $toStation; ?></td></tr>
+				<tr><td>Journey Date</td><td class="colon">:</td><td><?php echo $journeyDate; ?></td></tr>
+				<tr><td>Provider</td><td class="colon">:</td><td><?php echo $provider; ?></td></tr>
+				<tr><td>Provider Type</td><td class="colon">:</td><td><?php echo $bus_type; ?></td></tr>
+				<tr><td>Boarding Point</td><td class="colon">:</td><td><?php echo $boarding_name; ?></td></tr>
+				<tr><td>Booking Id</td><td class="colon">:</td><td><?php echo $cust_book_id; ?></td></tr>
+				<tr><td>TicketGoose PNR</td><td class="colon">:</td><td><?php echo $bookingId; ?></td></tr>
+				<tr><td>Total Seats</td><td class="colon">:</td><td><?php echo $noOfSeats; ?></td></tr>
+				<tr><td>Total Price</td><td class="colon">:</td><td><?php echo $totalFare; ?></td></tr>
+				<tr><td></td></tr>
+				<th>CONTACT DETAILS</th>
+				<tr><td colspan=3><?php echo $travelsPhoneNbr; ?></td></tr>
+			</table> 
+		</form>
+	</div>
+
+</div>
+	<?php
+	}// success 		
+}else{   //code200 success
+	echo "booking failed";
+	}
+				
+	?>		
+
+	
+<?php
+		
+		
+		
+		}else{
+			echo "Payment is failed";
+		}
+} //foreach
+?>		
+	
+</html>
