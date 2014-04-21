@@ -135,12 +135,12 @@ foreach($rows as $keyrows => $valrows){
 										}elseif($status == 'M'){
 										if($cellType=='Seat'){
 						echo "<td class='seat' id='seat'>";	
-						echo "<img src='images/Seat-male.jpg' rel=$seatNbr title=$seatNbr alt=$seatNbr>";
+						echo "<img src='images/Seat-male.jpg' rel=$seatNbr title=$fare alt=$seatNbr>";
 						echo "<img src='images/Seat-availed.jpg' style='display:none' title=$seatNbr rel=$seatNbr alt=$seatNbr>";
 						echo "</td>";
 										}else{
 						echo "<td class='seat' id='seat'>";	
-						echo "<img src='images/Sleeper-male.jpg' rel=$seatNbr title=$seatNbr alt=$seatNbr>";
+						echo "<img src='images/Sleeper-male.jpg' rel=$seatNbr title=$fare alt=$fare>";
 						echo "<img src='images/Sleeper-availed.jpg' style='display:none' title=$seatNbr rel=$seatNbr alt=$seatNbr>";
 						echo "</td>";
 				
@@ -149,12 +149,12 @@ foreach($rows as $keyrows => $valrows){
 										if($cellType=='Seat'){
 
 						echo "<td class='seat' id='seat'>";	
-						echo "<img src='images/Seat-female.jpg' rel=$seatNbr title=$seatNbr alt=$seatNbr>";
+						echo "<img src='images/Seat-female.jpg' rel=$seatNbr title=$fare alt=$fare>";
 						echo "<img src='images/Seat-availed.jpg' style='display:none'  title=$seatNbr rel=$seatNbr alt=$seatNbr>";
 						echo "</td>";
 										}else{
 						echo "<td class='seat' id='seat'>";	
-						echo "<img src='images/Sleeper-female.jpg' rel=$seatNbr title=$seatNbr alt=$seatNbr>";
+						echo "<img src='images/Sleeper-female.jpg' rel=$seatNbr title=$fare alt=$fare>";
 						echo "<img src='images/Sleeper-availed.jpg' style='display:none'  title=$seatNbr rel=$seatNbr alt=$seatNbr>";
 						echo "</td>";
 										
