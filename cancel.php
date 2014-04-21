@@ -20,9 +20,10 @@ $errors = array (
 	2 => "Some Internal Error.. Please try again later",
 	3 => "Your ticket has been cancelled"
 );
-$error_id = $_GET['err'];
+
 
 if (isset($_GET['err'])) {
+$error_id = $_GET['err'];
 	return $errors[$error_id];
 }
 }
