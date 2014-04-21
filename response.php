@@ -24,6 +24,75 @@ if(isset($_GET['DR'])) {
 }
 ?>
 
+<link type="text/css" rel="stylesheet" href="css/lightbox.css">
+<style>
+.outtab{
+	background-color: rgb(224, 224, 224); 
+	/*padding:10px 20px 15px 12px; */
+	width:814px;
+	margin: 16px 67px;
+	border-style:outset;
+}
+.printts{
+	float: right;
+    padding-right: 75px;
+    padding-top: 36px;
+}
+.pdf{
+	padding-top: 34px;
+    padding-left: 810px;
+}
+table{
+	margin:21px 11px 26px 55px;
+}
+.det {
+    width: 215px;
+}
+
+</style>
+
+<script language="javascript">
+function printPage(printContent) {
+	var display_setting="toolbar=yes,menubar=yes,";
+	display_setting+="scrollbars=yes,width=650, height=600, left=100, top=25";
+	
+	
+	var printpage=window.open("","printer",display_setting);
+	
+	printpage.document.open();
+	printpage.document.write('<html><head><title>Confirmation Details</title></head><body style="font-family:verdana; font-size:12px;">');
+	
+	printpage.document.write(printContent);
+	printpage.document.write('</body></html>');
+	printpage.print();
+	printpage.document.close();
+	printpage.focus();
+
+		
+}</script>
+
+<link rel="stylesheet" type="text/css" media="print" href="print.css" />
+<style type="text/css">
+        @media print {
+            body * {
+                visibility:hidden;
+            } 
+            #printable, #printable * {
+                visibility:visible;
+            }
+            #printable { /* aligning the printable area */
+                position:absolute;
+                left:40;
+                top:40;
+            }
+        }
+</style>
+ 
+
+
+
+
+
 <?php
 $bookingId = $_SESSION['bookingId'];
 		$depart = $_SESSION['depart'];
@@ -88,7 +157,15 @@ $query = mysql_query("UPDATE gobusgo_passdetails set payment_id='$PaymentID', pa
 	$code= $status->code;
 	
 	?>
-<?php 
+	
+	
+<?php
+if($code== '200'){
+		// update qery for  ticket status 
+		
+		$qry = mysql_query("UPDATE gobusgo_passdetails SET operator_id= $extraSeatInfo, ticket_status='Success'  WHERE bookingId = '$bookingId'");
+
+ 
 			$html ='';
     // Assign html code into php variable:-
 	$html.= 
@@ -222,7 +299,7 @@ echo '<a href="fpdf/'.$fetchseat['bookingId'].'.pdf" target="_blank"><img src="i
 //echo "<a href='downloads/$fetchseat['cust_book_id'] .'_'. $fetchseat['contact_name'] . '.pdf' target='_blank'><img src='images/pdf.png'></a>";
  ?>
 </div>	
-<?php	if($code == '200'){  ?>
+
 	<div id="printsection">
 		<form name="contactdet" id="contactdet" action="" method="post" />
 				<table>
@@ -278,6 +355,12 @@ echo '<a href="fpdf/'.$fetchseat['bookingId'].'.pdf" target="_blank"><img src="i
 
 </div>
 	
-<?php	}
-}
+<?php	
+	}else{
+	
+		echo "booking is failed";
+	}
+	}else{
+			echo "Payment is failed";
+		}
  ?>
