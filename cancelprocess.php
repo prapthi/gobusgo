@@ -24,16 +24,20 @@ if(isset($_POST['submit'])){
 <?php
 $cancelTickets=$client->CancelTicket($username,$password,$bookingId,$seatArray); 
 print "<pre>";
-//print_r($cancelTickets);
+print_r($cancelTickets);
 print "</pre>";
 
-echo $failcode = $cancelTickets->status->code;
+$failcode = $cancelTickets->status->code;
 if($failcode=='401'){
 echo "if";
 	header('location:cancel.php?err=1');
 }elseif($failcode=='200'){
 	$cancellationCharges =$cancelTickets->cancellationChargeDetailsList;
 	echo "else";
+print "<pre>";
+print_r($cancellationCharges);
+print "</pre>";
+
 	$status1= $cancelTickets->status;
 	$code1= $status1->code;
 	foreach($cancellationCharges as $values){
@@ -42,6 +46,9 @@ echo "if";
 		$seatNbr =$values->seatNbr;
 	}
 	$confirmcancel=$client-> confirmTicketCancellation($username,$password,$bookingId,$seatArray); 
+print "<pre>";
+print_r($confirmcancel);
+print "</pre>";
 	$refundAmount= $confirmcancel->refundAmount;
 	$status2= $confirmcancel->status;
 	$code2= $status2->code;
@@ -58,8 +65,7 @@ if ($code2 == "200") {
 
 }else{
 	echo "elsecss";
-
-	header('location:cancel.php?err=2');
+	header('location:cancel.php?err=2');	
 }
 
  ?>
