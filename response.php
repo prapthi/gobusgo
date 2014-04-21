@@ -99,7 +99,7 @@ echo '<a href="fpdf/'.$fetchseat['bookingId'].'.pdf" target="_blank"><img src="i
 //echo "<a href='downloads/$fetchseat['cust_book_id'] .'_'. $fetchseat['contact_name'] . '.pdf' target='_blank'><img src='images/pdf.png'></a>";
  ?>
 </div>	
-	if($code == '200'){  ?>
+<?php	if($code == '200'){  ?>
 	<div id="printsection">
 		<form name="contactdet" id="contactdet" action="" method="post" />
 				<table>
