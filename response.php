@@ -71,7 +71,7 @@ $query = mysql_query("UPDATE gobusgo_passdetails set payment_id='$PaymentID', pa
 	$seatsbooked = $fetchseat['seatNbr'] ;
 	$bookingId = $fetchseat['bookingId'] ;
 	
-	$bookTickets= $client->BookTicket($username,$password,$bookingId);
+	$bookTickets= $client->BookTicket('javaapitest','testing',$bookingId);
 	$cancellist = $bookTickets->cancellationDescList;
 	$extraSeatList = $bookTickets->extraSeatInfoList;
 	
@@ -82,7 +82,7 @@ $query = mysql_query("UPDATE gobusgo_passdetails set payment_id='$PaymentID', pa
 		
 	print "<pre>";
 	print_r($extraSeatInfo);
-	print_r(seatNbr);
+	print_r($seatNbr);
 	print "</pre>";
 	
 		
