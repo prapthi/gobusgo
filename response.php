@@ -87,6 +87,18 @@ $query = mysql_query("UPDATE gobusgo_passdetails set payment_id='$PaymentID', pa
 	$status = $bookTickets->status;
 	$code= $status->code;
 	
+	?>
+<div class="printts">
+	<a href="javascript:void(0);" onClick="printPage(printsection.innerHTML)"><img src="images/printer.jpg" /></a>	
+</div>
+<div class="pdf">
+<?php phptopdf_html($html,'fpdf/',$fetchseat['bookingId'].'.pdf');
+
+echo '<a href="fpdf/'.$fetchseat['bookingId'].'.pdf" target="_blank"><img src="images/pdf.png"></a>'; 
+//echo "<a href='pdf/$fetchseat['cust_book_id'].pdf'><img src='images/pdf.png'></a>";
+//echo "<a href='downloads/$fetchseat['cust_book_id'] .'_'. $fetchseat['contact_name'] . '.pdf' target='_blank'><img src='images/pdf.png'></a>";
+ ?>
+</div>	
 	if($code == '200'){  ?>
 	<div id="printsection">
 		<form name="contactdet" id="contactdet" action="" method="post" />
