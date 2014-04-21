@@ -77,23 +77,17 @@ $query = mysql_query("UPDATE gobusgo_passdetails set payment_id='$PaymentID', pa
 	
 	foreach($extraSeatList as $extrainfo){
 		$extraSeatInfo =$extrainfo->extraSeatInfo;
-		$seatNbr       =$extrainfo->seatNbr;
+		$seatN      =$extrainfo->seatNbr;
 	}	
 		
-	print "<pre>";
-	print_r($extraSeatInfo);
-	print_r($seatNbr);
-	print "</pre>";
 	
-		
 	$seat= $status->seatNbr;
 	$travelsPhoneNbr = $bookTickets->travelsPhoneNbr;
 	
 	$status = $bookTickets->status;
 	$code= $status->code;
-	print "<pre>";
-	print_r($bookTickets);
-	print "</pre>";
+	
+	print_r($status);
 	
 	
 	
