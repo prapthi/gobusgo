@@ -25,6 +25,8 @@ $cancelTickets=$client->CancelTicket('javaapitest','testing',$seatArray);
 print "<pre>";
 print_r($cancelTickets);
 print "</pre>";
+
+print_r($seatArray);
 exit();
 $failcode = $cancelTickets->status->code;
 
