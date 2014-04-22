@@ -22,10 +22,11 @@ if(isset($_POST['submit'])){
 
 $cancelTickets=$client->CancelTicket('javaapitest','testing',$seatArray); 
 print "<pre>";
-print_r($cancelTickets);
+//print_r($cancelTickets);
 print "</pre>";
 
 $failcode = $cancelTickets->status->code;
+
 if($failcode=='401'){
 echo "if";
 	//header('location:cancel.php?err=1');
