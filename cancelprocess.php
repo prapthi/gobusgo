@@ -9,7 +9,7 @@ if(isset($_POST['submit'])){
 	$bookingId = $_POST['bookingId'];
 	$pmail =$_POST['pmail'];
 	$ptel =$_POST['ptel'];
-print $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId'";
+ $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId'";
 	$sql = mysql_query($selectqry);
 	$fetchseat = mysql_fetch_assoc($sql);
 	$seatnum= $fetchseat['pass_name'];
@@ -20,29 +20,15 @@ print $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$boo
 		$seatArray[] = $seatToCancel;
 	}
 }
-
-print "<pre>";
-print_r($seatArray);
-print "</pre>";
-
-
-$cancelTickets=$client->CancelTicket('javaapitest','testing',$seatArray); 
-print "<pre>";
-print_r($cancelTickets);
-print "</pre>";
-
-
-exit();
+$cancelTickets=$client->CancelTicket('javaapitest','testing',$bookingId,$seatArray); 
 $failcode = $cancelTickets->status->code;
 
 if($failcode=='401'){
-echo "if";
+
 	header('location:cancel.php?err=1');
 	//header('location:cancel.php');
 }elseif($failcode=='200'){
 	$cancellationCharges =$cancelTickets->cancellationChargeDetailsList;
-	echo "else";
-
 	$status1= $cancelTickets->status;
 	$code1= $status1->code;
 	foreach($cancellationCharges as $values){
@@ -57,17 +43,17 @@ echo "if";
 	$code2= $status2->code;
 
 	if ($code2 == "200") {
-		echo "if second";
+
 		header('location:cancel.php?err=3');
 		
 	 }elseif($code2!="200") { 
-			echo "else second";
+
 		header('location:cancel.php?err=2');
 		
 	 }
 
 }else{
-	echo "elsecss";
+
 	header('location:cancel.php?err=2');	
 	
 }
