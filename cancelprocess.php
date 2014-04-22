@@ -1,9 +1,8 @@
 <?php
 include('header.php');
 include('username.php');
-?>
 
-<?php
+
 if(isset($_POST['submit'])){
 
 	$bookingId = $_POST['bookingId'];
@@ -20,9 +19,8 @@ if(isset($_POST['submit'])){
 		$seatArray[] = $seatToCancel;
 	}
 }
-?>
-<?php
-$cancelTickets=$client->CancelTicket($username,$password,$bookingId,$seatArray); 
+
+$cancelTickets=$client->CancelTicket('javaapitest','testing',$seatArray); 
 print "<pre>";
 print_r($cancelTickets);
 print "</pre>";
@@ -48,17 +46,13 @@ echo "if";
 	$status2= $confirmcancel->status;
 	$code2= $status2->code;
 
-if ($code2 == "200") {
-	echo "if second";
-	header('location:cancel.php?err=3');
-  ?>
-<?php }elseif($code2!="200") { 
-		echo "else second";
-	header('location:cancel.php?err=2');
-?>
-	
-	
-<?php }
+	if ($code2 == "200") {
+		echo "if second";
+		header('location:cancel.php?err=3');
+	 }elseif($code2!="200") { 
+			echo "else second";
+		header('location:cancel.php?err=2');
+	 }
 
 }else{
 	echo "elsecss";
