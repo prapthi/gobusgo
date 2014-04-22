@@ -34,9 +34,6 @@ echo "if";
 }elseif($failcode=='200'){
 	$cancellationCharges =$cancelTickets->cancellationChargeDetailsList;
 	echo "else";
-print "<pre>";
-print_r($cancellationCharges);
-print "</pre>";
 
 	$status1= $cancelTickets->status;
 	$code1= $status1->code;
@@ -46,17 +43,17 @@ print "</pre>";
 		$seatNbr =$values->seatNbr;
 	}
 	$confirmcancel=$client-> confirmTicketCancellation($username,$password,$bookingId,$seatArray); 
-print "<pre>";
-print_r($confirmcancel);
-print "</pre>";
+
 	$refundAmount= $confirmcancel->refundAmount;
 	$status2= $confirmcancel->status;
 	$code2= $status2->code;
 
 if ($code2 == "200") {
+	echo "if second";
 	header('location:cancel.php?err=3');
   ?>
 <?php }elseif($code2!="200") { 
+		echo "else second";
 	header('location:cancel.php?err=2');
 ?>
 	
