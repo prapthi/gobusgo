@@ -141,7 +141,7 @@ $ssl= $value['seatDetailsList'];
 											if($cellType=='Seat'){
 												echo "<td class='seat' id='seat'>";
 												echo "<img src='images/Seat.jpg' rel=$seatNbr title=$fare alt=$fare >";
-												echo "<img src='images/Seat-availed.jpg' style='display:none' title=$seatNbr rel=$seatNbr alt=$seatNbr>";
+												echo "<img src='images/Seat-availed.jpg' style='display:none' title=$seatNbr rel=$fare alt=$fare>";
 												echo "</td>";	
 											}if($cellType=='Berth'){
 											
@@ -154,28 +154,28 @@ $ssl= $value['seatDetailsList'];
 										}elseif($status == 'M'){
 											if($cellType=='Seat'){
 												echo "<td class='seat' id='seat'>";	
-												echo "<img src='images/Seat-male.jpg' rel=$seatNbr title=$seatNbr alt=$seatNbr>";
-												echo "<img src='images/Seat-availed.jpg' style='display:none' title=$seatNbr rel=$seatNbr alt=$seatNbr>";
+												echo "<img src='images/Seat-male.jpg' rel=$seatNbr title=$fare alt=$fare>";
+												echo "<img src='images/Seat-availed.jpg' style='display:none' title=$seatNbr rel=$fare alt=$fare>";
 												echo "<input type='hidden' value='0' name='male'>";
 												echo "</td>";
 											}if($cellType=='Berth'){
 												echo "<td class='seat' id='seat'>";	
-												echo "<img src='images/Sleeper-male.jpg' rel=$seatNbr title=$seatNbr alt=$seatNbr>";
-												echo "<img src='images/Sleeper-availed.jpg' style='display:none' title=$seatNbr rel=$seatNbr alt=$seatNbr>";
+												echo "<img src='images/Sleeper-male.jpg' rel=$seatNbr title=$fare alt=$fare>";
+												echo "<img src='images/Sleeper-availed.jpg' style='display:none' title=$seatNbr rel=$fare alt=$fare>";
 												echo "</td>";
 											
 											}
 										}elseif($status == 'F'){
 											if($cellType=='Seat'){
 												echo "<td class='seat' id='seat'>";	
-												echo "<img src='images/Seat-female.jpg' rel=$seatNbr title=$seatNbr alt=$seatNbr>";
-												echo "<img src='images/Seat-availed.jpg' style='display:none'  title=$seatNbr rel=$seatNbr alt=$seatNbr>";
+												echo "<img src='images/Seat-female.jpg' rel=$seatNbr title=$fare alt=$fare>";
+												echo "<img src='images/Seat-availed.jpg' style='display:none'  title=$seatNbr rel=$fare alt=$fare>";
 												echo "<input type='hidden' value='1' name='female'>";
 												echo "</td>";
 											}if($cellType=='Berth'){
 												echo "<td class='seat' id='seat'>";	
-												echo "<img src='images/Sleeper-female.jpg' rel=$seatNbr title=$seatNbr alt=$seatNbr>";
-												echo "<img src='images/Sleeper-availed.jpg' style='display:none'  title=$seatNbr rel=$seatNbr alt=$seatNbr>";
+												echo "<img src='images/Sleeper-female.jpg' rel=$seatNbr title=$fare alt=$fare>";
+												echo "<img src='images/Sleeper-availed.jpg' style='display:none'  title=$seatNbr rel=$fare alt=$fare>";
 												echo "</td>";
 											}
 										}
@@ -185,11 +185,11 @@ $ssl= $value['seatDetailsList'];
 								if(!isset($seat)){
 									if($cellType=='Seat'){	
 										echo "<td>";
-										echo "<img src='images/Seat-booked.jpg' title=$seatNbr rel=$seatNbr alt=$seatNbr name=$seatNbr>";
+										echo "<img src='images/Seat-booked.jpg' title=$fare rel=$seatNbr alt=$fare name=$fare>";
 										echo "</td>";
 									}if($cellType=='Berth'){
 										echo "<td>";
-										echo "<img src='images/Sleeper-booked.jpg' title=$seatNbr rel=$seatNbr alt=$seatNbr name=$seatNbr>";
+										echo "<img src='images/Sleeper-booked.jpg' title=$fare rel=$seatNbr alt=$fare name=$fare>";
 										echo "</td>";
 									}
 								}
