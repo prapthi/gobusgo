@@ -119,7 +119,7 @@ toStation,journey_date, scheduleId, provider,bus_type,boarding_name, bookingId,n
 <div class="section bookno">
 
 
-<div class="mailcon"> Check your mail for your booking Id sent by us </div>
+<div class="mailcon">  </div>
 <h1>Please Confirm Your Ticket</h1>
 <form  method="post" action="https://secure.ebs.in/pg/ma/sale/pay" name="frmTransaction" id="frmTransaction" onSubmit="return validate()">
 	<input name="account_id" type="hidden" value="<? echo $accountId ?>">
