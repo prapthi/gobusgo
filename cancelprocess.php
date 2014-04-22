@@ -9,7 +9,7 @@ if(isset($_POST['submit'])){
 	$bookingId = $_POST['bookingId'];
 	$pmail =$_POST['pmail'];
 	$ptel =$_POST['ptel'];
-	$selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId'";
+print $selectqry    = "SELECT * FROM gobusgo_passdetails WHERE bookingId = '$bookingId'";
 	$sql = mysql_query($selectqry);
 	$fetchseat = mysql_fetch_assoc($sql);
 	$seatnum= $fetchseat['pass_name'];
@@ -21,12 +21,17 @@ if(isset($_POST['submit'])){
 	}
 }
 
+print "<pre>";
+print_r($seatArray);
+print "</pre>";
+
+
 $cancelTickets=$client->CancelTicket('javaapitest','testing',$seatArray); 
 print "<pre>";
 print_r($cancelTickets);
 print "</pre>";
 
-print_r($seatArray);
+
 exit();
 $failcode = $cancelTickets->status->code;
 
