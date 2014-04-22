@@ -277,7 +277,7 @@ if (isset($_GET['err'])) {
 								    </td>
 								   
 								</tr>
-								<tr><td colspan="6"><div class="bus_seat"> </div>
+								<tr><td colspan="12"><div class="bus_seat"> </div></td></tr>
 							
 							</table>
 				
@@ -287,6 +287,7 @@ if (isset($_GET['err'])) {
 </tbody>
 		</table>
 			<?php }?>
+	</div>
 	</div>
 	
 <script type="text/javascript">
