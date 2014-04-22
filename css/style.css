@@ -262,19 +262,19 @@ font-weight:600;
 /*----------------------------------------------footer-------------------------------------------------------------------------------------*/
 .foot
 {
-background: none repeat scroll 0 0 #004D85;
-border-radius: 10px;
-color: #5489B5;
-float: left;
-margin: 10px 20px;
-padding: 10px 5px;
-text-align: center;
-width: 930px;
+	background:#004D85;
+	margin:10px 20px;
+	border-radius:10px;
+	color:#5489B5;
+	float:left;
+	width:930px;
+	padding:10px 5px;
+	text-align:center;
 }
 .botmen
 {
-float:left;
-margin:0;
+float:none;
+margin:0 0 10px 0;
 }
 .botmen >li
 {
@@ -283,13 +283,13 @@ padding:0 3px;
 .botmen >li a
 {
 font-size:12px;
-padding:11px 5px;
+padding:5px;
 color:#FFF;
 }
 .botmen >li a:hover
 {
 background:#FFF;
-color:#;
+border-radius:5px;
 }
 
 .botas
@@ -297,9 +297,10 @@ color:#;
 float:right;
  margin: 23px 0 0 0;
 }
-.copyright {
-    color: #FFFFFF;
-    font-size: 12px;
+.copyright
+{
+font-size:12px;
+color: #FFFFFF;
 }
 .copyright >a
 {
