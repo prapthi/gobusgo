@@ -163,7 +163,7 @@ $query = mysql_query("UPDATE gobusgo_passdetails set payment_id='$PaymentID', pa
 if($code== '200'){
 		// update qery for  ticket status 
 		
-		$qry = mysql_query("UPDATE gobusgo_passdetails SET operator_id= $extraSeatInfo, ticket_status='Success'  WHERE bookingId = '$bookingId'");
+		$qry = mysql_query("UPDATE gobusgo_passdetails SET operator_id='$extraSeatInfo', ticket_status='Success'  WHERE bookingId = '$bookingId'");
 
  
 			$html ='';
