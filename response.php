@@ -357,10 +357,12 @@ echo '<a href="fpdf/'.$fetchseat['bookingId'].'.pdf" target="_blank"><img src="i
 	
 <?php	
 	}else{
-	
-		echo "booking is failed";
+		
+		header('location:getTripListV2.php?err=1');
+		//echo "booking is failed";
 	}
 	}else{
-			echo "Payment is failed";
+		header('location:busbookings.php?err=2');
+			//echo "Payment is failed";
 		}
  ?>
