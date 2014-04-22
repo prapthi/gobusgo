@@ -297,16 +297,15 @@ color:#;
 float:right;
  margin: 23px 0 0 0;
 }
-.copyright
-{
-font-size:12px;
-text-align:right;
-color: #FFFFFF;
+.copyright {
+    color: #FFFFFF;
+    font-size: 12px;
 }
 .copyright >a
 {
 color:#5489B5;
 }
+
 /*---------------------------------------About-----------------------------------------------------------------*/
 .abt
 {
