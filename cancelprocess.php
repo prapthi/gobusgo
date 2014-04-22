@@ -20,7 +20,7 @@ if(isset($_POST['submit'])){
 		$seatArray[] = $seatToCancel;
 	}
 }
-$cancelTickets=$client->CancelTicket('javaapitest','testing',$bookingId,$seatArray); 
+$cancelTickets=$client->CancelTicket($username,$password,$bookingId,$seatArray); 
 $failcode = $cancelTickets->status->code;
 
 if($failcode=='401'){
@@ -43,9 +43,12 @@ if($failcode=='401'){
 	$code2= $status2->code;
 
 	if ($code2 == "200") {
-
-		header('location:cancel.php?err=3');
-		
+			
+		$qry = mysql_query("UPDATE gobusgo_passdetails SET Bookingstatus='Cancelled' WHERE bookingId = '$bookingId'");
+	
+		if($qry){
+			header('location:cancel.php?err=3');
+		}
 	 }elseif($code2!="200") { 
 
 		header('location:cancel.php?err=2');
