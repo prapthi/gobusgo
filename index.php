@@ -78,8 +78,8 @@ $arr=$result5->stationList;
 			</div>
 			<div class="icon">
 				<div>
-				<?php if(isset($_SESSION['username'])){ ?>
-					Welcome, <b><?php echo $_SESSION['username'];?>!</b> <a href="signout.php">Signout</a>	
+				<?php if(isset($_SESSION['uname'])){ ?>
+					Welcome, <b><?php echo $_SESSION['uname'];?>!</b> <a href="signout.php">Signout</a>	
 				<?php }else{ ?>
 					<a href="signin.php">Signin</a>|<a href="agent.php">Signup</a>
 				<?php } ?>
@@ -93,12 +93,11 @@ $arr=$result5->stationList;
 				<ul class="menu">
 					<li id="index"><a href="index.php">Home</a></li>
 					<li><a href="about.php">About</a></li>
+					<?php if(isset($_SESSION['uname'])){ ?>
+					<li><a href="view.php">View Account</a></li>
+					<?php }?>
 					<li><a href="ticket.php">Print Ticket</a></li>
 					<li><a href="cancel.php">Cancellation</a></li>
-					<?php if(isset($_SESSION['username'])){ ?>
-					<li><a href="myAccount.php">My Account</a></li>
-					<li><a href="agent.php">New Agent</a></li>
-					<?php  } ?>
 					<li><a href="contact.php">Contact US</a></li>
 				</ul>
 			</div>
