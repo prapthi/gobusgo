@@ -30,8 +30,8 @@ $failcode = $cancelTickets->status->code;
 
 if($failcode=='401'){
 echo "if";
-	//header('location:cancel.php?err=1');
-	header('location:cancel.php');
+	header('location:cancel.php?err=1');
+	//header('location:cancel.php');
 }elseif($failcode=='200'){
 	$cancellationCharges =$cancelTickets->cancellationChargeDetailsList;
 	echo "else";
@@ -51,18 +51,18 @@ echo "if";
 
 	if ($code2 == "200") {
 		echo "if second";
-		//header('location:cancel.php?err=3');
-		header('location:cancel.php');
+		header('location:cancel.php?err=3');
+		
 	 }elseif($code2!="200") { 
 			echo "else second";
-		//header('location:cancel.php?err=2');
-		header('location:cancel.php');
+		header('location:cancel.php?err=2');
+		
 	 }
 
 }else{
 	echo "elsecss";
-	//header('location:cancel.php?err=2');	
-	header('location:cancel.php');
+	header('location:cancel.php?err=2');	
+	
 }
 
  ?>
