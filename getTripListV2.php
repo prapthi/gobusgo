@@ -2,9 +2,6 @@
 include('header.php');
 include('username.php');
 ?>
-<?php ob_start();
-session_start(); 
-?>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 <link rel="stylesheet" type="text/css" href="css/detailstyle.css" />
@@ -164,9 +161,10 @@ $errors = array (
 	2 => "Your payment is not successfull... Please try again with your booking"
 	
 );
-$error_id = $_GET['err'];
+
 
 if (isset($_GET['err'])) {
+	$error_id = $_GET['err'];
 	return $errors[$error_id];
 }
 }
@@ -279,7 +277,7 @@ if (isset($_GET['err'])) {
 								    </td>
 								   
 								</tr>
-								<tr><td colspan="12"><div class="bus_seat"> </div></td></tr>
+								<tr><td colspan="6"><div class="bus_seat"> </div>
 							
 							</table>
 				
