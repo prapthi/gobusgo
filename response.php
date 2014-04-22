@@ -366,3 +366,9 @@ echo '<a href="fpdf/'.$fetchseat['bookingId'].'.pdf" target="_blank"><img src="i
 			//echo "Payment is failed";
 		}
  ?>
+
+<?php
+include('footer.php');
+?>
+
+
