@@ -17,7 +17,8 @@ if(isset($_POST['pclick'])){
 		$ticketno = $details['bookingId'];	
 		if($ticketStatus== 'Success' && $ticketno!= ''){?>
 			<div style=" padding-left: 472px;">
-$file = './fpdf/'.$ticket_no.'.pdf';
+<?php 
+			$file = './fpdf/'.$ticket_no.'.pdf';
 $filename = $ticket_no.'.pdf'; /* Note: Always use .pdf at the end. */
 
 header('Content-type: application/pdf');
@@ -27,7 +28,9 @@ header('Content-Length: ' . filesize($file));
 header('Accept-Ranges: bytes');
 
 readfile($file); 
-			<?php //$printTicket= 'To Print Your Ticket..<a href="fpdf/'.$ticketno.'.pdf" target="_blank">Click Here</a>'; ?>
+			
+			
+			//$printTicket= 'To Print Your Ticket..<a href="fpdf/'.$ticketno.'.pdf" target="_blank">Click Here</a>'; ?>
 			</div>
 		<?php }else{
 			$printTicket = 'Your ticket no is wrong';
