@@ -52,11 +52,12 @@ width:980px;
 background:#FFF;
 margin:0 auto;
 }
-.bg
+/*.bg
 {
-/*background:url(../images/bg2.png) no-repeat;*/
+background:url(../images/bg2.png) no-repeat;
 border: 0 none;
-}
+background-size:100% 100%;
+}*/
 /*body #index a
 {
 background:url(../images/menu_bu.png) no-repeat;
@@ -70,7 +71,7 @@ color:#FFF;
 .botbg
 {
 background:url(../images/bottam_bg.png) no-repeat center top;
-padding-bottom:239px;
+padding-bottom:215px;
 }
 /*----------------------------------------------------------------------------header--------------------------------------------------------------------------------------*/
 .logo
@@ -246,7 +247,8 @@ border-radius:26px;
 {
 background:#244255;
 border-radius:10px;
-width:670px;
+width:630px;
+padding:20px;
 margin:20px;
 }
 .botart h3
@@ -257,11 +259,13 @@ color:#FFF;
 {
 float:left;
 color:#FFF;
-margin: 33px 29px 0 32px;
+margin-right:69px;
 }
+
 .ptp >li 
 {
-font-weight:600;
+font-weight:bold;
+list-style: none outside none;
 }
 /*----------------------------------------------footer-------------------------------------------------------------------------------------*/
 .foot
@@ -310,7 +314,6 @@ color: #FFFFFF;
 {
 color:#5489B5;
 }
-
 /*---------------------------------------About-----------------------------------------------------------------*/
 .abt
 {
@@ -461,37 +464,56 @@ padding:20px;
 	}
 .coniframe
 {
-float:right;
-width:540px;
+float:left;
+width:500px;
 margin-top: 21px;
+font-weight:bold;
+font-size:14px;
+line-height:30px;
+}
+.coniframe div
+{
+float:left;
+color:#5489B5;
+width:180px;
+}
+.coniframe a
+{
+text-decoration:underline;
+}
+.coniframe a:hover
+{
+color:#5489B5;
 }
 .conform 
 {
-    float:left;
+    float:right;
 	width:395px;
 	line-height:20px;
 	font-size:12px;
 	clear:both;
+	background:#F4F4F4;
 }
 
 .con 
 {
-   float:left;
-    padding-top: 3px;
-	margin-right:13px;
-
+padding-bottom: 5px;
 }
-.feild
+.con div
 {
+float:left;
+width:80px;
 }
-.feild >input
+.con  >input
 {
-width:200px;
+width:282px;
 }
-.feild >textarea
+.con >textarea
 {
-width: 370px;
+float:none;
+width:282px;
 margin:0;
+height: 50px;
 }
 .conclick >input
 {
@@ -511,7 +533,7 @@ margin:5px;
 }
 .bgcon
 {
-background:#F4F4F4;
+
 padding:10px;
 }
 /*---------------feedback-------------*/
@@ -538,16 +560,11 @@ right:100px;
 .sercon
 {
 padding:5px;
-margin:0 4px;
-background:#EEEEEE;
-width:335px;
+margin:0 auto;
+width:310px;
 
 }
-.sercon >h3 
-{
-color:#DD074D;
-float:left;
-}
+
 .sercon >a
 {
 float:right;
@@ -559,25 +576,26 @@ clear:both;
 }
 .sercon >input
 {
-width:300px;
+width:200px;
 margin:5px 0;
 }
 .sercon >textarea
 {
-width:300px;
+width:200px;
 float:none;
 margin:5px 0;
 }
 .sercon >input[type="submit"]
 {
 width:100px;
-margin:5px 0;
-background:#F00347;
+margin:5px 105px;
+background:#439C3C;
 border:0;
 border-radius:20px;
 font-weight:600;
 color:#FFF;
 font-size:16px;
+cursor:pointer;
 }
 /*----------------------------------------------------------------------------A style------------------------------------------------------------------------------------------*/
 /*----------triplist-------*/
@@ -619,14 +637,15 @@ cursor:pointer;
 }
 .boardtab
 {
+
 margin-right:10px;
 }
 .board
 {
 width:250px;
 text-align:left;
-height:175px;
 overflow-y:scroll;
+height:175px;
 }
 .sp1
 {
@@ -678,6 +697,7 @@ border-radius: 5px;
 }
 .seability
 {
+
 margin:0 auto;
 }
 .tabouter >tbody >tr >td
