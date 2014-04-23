@@ -17,7 +17,7 @@ if(isset($_POST['pclick'])){
 		$ticketno = $details['bookingId'];	
 		if($ticketStatus== 'Success' && $ticketno!= ''){?>
 			<div style=" padding-left: 472px;">
-<?php 
+			<?php 
 			$file = './fpdf/'.$ticket_no.'.pdf';
 $filename = $ticket_no.'.pdf'; /* Note: Always use .pdf at the end. */
 
@@ -39,12 +39,12 @@ readfile($file);
 		
 }
 ?>
-<div class="section">
- <div style="color:#EB001E;"> <?php echo isset($printTicket)?$printTicket:''; ?> </div>
-   <div class="print">
-  
 
+<div class="section">
+<div style="color:#EB001E;"> <?php echo isset($printTicket)?$printTicket:''; ?> </div>
+   <div class="print">
     <form action="" method="post">
+	
 		<div class="pitem"><img src="images/printhead.png" alt="" required=""></div>
 		<div class="pitem">PNR No. or Ticket No.<input type="text" name="ticket_no" value="<?php echo isset($ticketno)?$ticketno:''; ?>" required=""></div>
 	<!--	<div class="pitem">Email<input type="email" name="pmail" value="" required=""></div>
@@ -52,7 +52,7 @@ readfile($file);
 		
 		<div class="pclick"><input type="Submit" name="pclick" value="Submit"></div>
 	</form>
-
+<!--	-->
 	</div>
 </div>
 
