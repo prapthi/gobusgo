@@ -26,7 +26,7 @@ header('Content-Transfer-Encoding: binary');
 header('Content-Length: ' . filesize($file));
 header('Accept-Ranges: bytes');
 
-@readfile($file); 
+readfile($file); 
 			<?php //$printTicket= 'To Print Your Ticket..<a href="fpdf/'.$ticketno.'.pdf" target="_blank">Click Here</a>'; ?>
 			</div>
 		<?php }else{
