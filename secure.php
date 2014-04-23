@@ -100,7 +100,7 @@ $_SESSION['bookingId']=$bookingId;
 $cancellationDescList= $blockseats->cancellationDescList;
 $expireTime= $blockseats->expireTime;
 $status= $blockseats->status;
-echo $failCode= $status->code;
+$failCode= $status->code;
 if($failCode=='200' && $bookingId){	
   
 $result = mysql_query("INSERT INTO $tbl_name(cust_book_id,contact_name,pass_name,address,country, state ,city, pin_code,mobile,email,fromStation,
