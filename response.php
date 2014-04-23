@@ -4,6 +4,7 @@ session_start();
 include('username.php');
 include_once('phpToPDF.php');
 include('header.php');
+include 'PHPMailer/class.phpmailer.php'; 
 ?>
 <?php
 	 $secret_key = "ebskey";	 // Your Secret Key
