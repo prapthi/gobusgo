@@ -172,7 +172,7 @@ include('PHPMailer/class.phpmailer.php');
 			//$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
 			$mail->SMTPAuth = true; // authentication enabled
 			$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
-			$mail->Host = "smtp.gmail.com";
+			$mail->Host = 'smtp.gmail.com';
 			$mail->Port = 465; // or 587
 			$mail->Username = "bhubhu20122013@gmail.com";
 			$mail->Password = "bhubhu2bhubhu";
