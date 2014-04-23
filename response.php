@@ -242,7 +242,7 @@ else
 
 //$sms = "http://api.cutesms.in/sms.aspx?a=submit&email=ramalakshmi@sathyaindia.com&pw=Sathya&sid=gobus&sno=9003968671&msg=gobusgotest&to=9003968671";
 
-$ch = curl_init('http://api.cutesms.in/sms.aspx?a=submit&email=ramalakshmi@sathyaindia.com&pw=Sathya&sid=gobus&sno=9003968671&msg=gobusgotest&to=9003968671
+$ch = curl_init('http://api.cutesms.in/sms.aspx?a=submit&email=ramalakshmi@sathyaindia.com&pw=Sathya&sid=gobus&sno=9003968671&msg=gobusgotest&to=9003968671');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 curl_close($ch);
