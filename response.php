@@ -169,11 +169,12 @@ if($code== '200'){
 
 $mail = new PHPMailer();
 			$mail->IsSMTP(); // enable SMTP
-			//$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+			$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+			
 			$mail->SMTPAuth = true; // authentication enabled
 			$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
 			$mail->Host = "smtp.gmail.com";
-			$mail->Port = 465; // or 587
+			$mail->Port =587; //465; // or 587
 			//$mail->IsHTML(true);
 			
 			$mail->Username = "bhubhu20122013@gmail.com";
