@@ -17,7 +17,17 @@ if(isset($_POST['pclick'])){
 		$ticketno = $details['bookingId'];	
 		if($ticketStatus== 'Success' && $ticketno!= ''){?>
 			<div style=" padding-left: 472px;">
-			<?php $printTicket= 'To Print Your Ticket..<a href="fpdf/'.$ticketno.'.pdf" target="_blank">Click Here</a>'; ?>
+$file = './fpdf/'.$ticket_no.'.pdf';
+$filename = $ticket_no.'.pdf'; /* Note: Always use .pdf at the end. */
+
+header('Content-type: application/pdf');
+header('Content-Disposition: inline; filename="' . $filename . '"');
+header('Content-Transfer-Encoding: binary');
+header('Content-Length: ' . filesize($file));
+header('Accept-Ranges: bytes');
+
+@readfile($file); 
+			<?php //$printTicket= 'To Print Your Ticket..<a href="fpdf/'.$ticketno.'.pdf" target="_blank">Click Here</a>'; ?>
 			</div>
 		<?php }else{
 			$printTicket = 'Your ticket no is wrong';
@@ -28,6 +38,8 @@ if(isset($_POST['pclick'])){
 ?>
 <div class="section">
    <div class="print">
+   <div style="color:#EB001E;"> <?php echo isset($printTicket)?$printTicket:''; ?> </div>
+
     <form action="" method="post">
 		<div class="pitem"><img src="images/printhead.png" alt="" required=""></div>
 		<div class="pitem">PNR No. or Ticket No.<input type="text" name="ticket_no" value="<?php echo isset($ticketno)?$ticketno:''; ?>" required=""></div>
@@ -36,7 +48,7 @@ if(isset($_POST['pclick'])){
 		
 		<div class="pclick"><input type="Submit" name="pclick" value="Submit"></div>
 	</form>
-	<div style="color:#00FF33;"> <?php echo isset($printTicket)?$printTicket:''; ?> </div>
+
 	</div>
 </div>
 
