@@ -164,83 +164,58 @@ $query = mysql_query("UPDATE gobusgo_passdetails set payment_id='$PaymentID', pa
 if($code== '200'){
 		// update qery for  ticket status 
 		
-		$qry = mysql_query("UPDATE gobusgo_passdetails SET Bookingstatus='Booked', operator_id='$extraSeatInfo', ticket_status='Success'  WHERE bookingId = '$bookingId'");
+$qry = mysql_query("UPDATE gobusgo_passdetails SET Bookingstatus='Booked', operator_id='$extraSeatInfo', ticket_status='Success'  WHERE bookingId = '$bookingId'");
 
 
+
+			
 $mail = new PHPMailer();
 $mail->IsSMTP(); // enable SMTP
 //$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
 $mail->SMTPAuth = true; // authentication enabled
 $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
 $mail->Host = "smtp.gmail.com";
-$mail->Port = 587;//465; // or 587
+$mail->Port = 465; // or 587
 //$mail->IsHTML(true);
 
 $mail->Username = "bhubhu20122013@gmail.com";
 $mail->Password = "bhubhu2bhubhu";
 $mail->FromName = "Bhuvaneswari Balagangadharan";
 $mail->SetFrom("bhubhu20122013@gmail.com");
-$mail->Subject = 'PFA the GoBusGo- Details';
-$mail->Body = 'hi';
 $mail->AddAddress($email);
+$body .= '<html><head><title>GoBusGo Details</title></head>
+<body>
+	Dear Customer,<br>
+	Your ticket has been confirmed. 
+	<table width="750" border="0" align="center" cellpadding="0" cellspacing="10">
+		<tr><td style="border:1px solid #666666;">
+			<table>
+				<tr><td>
+					<table width="500px" border="0" align="center" cellpadding="0" cellspacing="0">
+						<tr><td>Booking Id</td><td>:</td><td>'.$bookingId.'</td></tr>
+						<tr><td>From</td><td>:</td><td>'.$fromStation.'</td></tr>
+						<tr><td>To</td><td>:</td><td>'.$toStation.'</td></tr>
+						<tr><td>Date of Journey</td><td>:</td><td>'.$journeyDate.'</td></tr>
+						<tr><td>No Of Seats</td><td>:</td><td>'.$noOfSeats.'</td></tr>
+					
+					</table>
+				</td></tr>
+			</table>
+		</td></tr>
+	</table>
+</body>
+</html>';
+
+$mail->Subject    = " PFA the GoBusGo- Details";
+$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
+$mail->MsgHTML($body);
+
+
+//$mail->AddAttachment($_FILES['attach']['tmp_name'],$_FILES['attach']['name']);
 if(!$mail->Send())
-    echo "Message was not sent!!!!!! <br />PHPMailer Error: " . $mail->ErrorInfo;
+echo "Message was not sent!!!!!! <br />PHPMailer Error: " . $mail->ErrorInfo;
 else
-    echo "SUCCESS!!!!!! Message has been sent";
-
-/*include('PHPMailer/class.phpmailer.php');
-			
-			$mail             = new PHPMailer(); // defaults to using php "mail()"
-			$mail->IsSMTP(); // enable SMTP
-			//$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
-			$mail->SMTPAuth = true; // authentication enabled
-			$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
-			$mail->Host = 'smtp.gmail.com';
-			$mail->Port = 465; // or 587
-			$mail->Username = "bhubhu20122013@gmail.com";
-			$mail->Password = "bhubhu2bhubhu";
-			$mail->FromName = "Bhuvaneswari Balagangadharan";
-			$mail->SetFrom("bhubhu20122013@gmail.com");
-			//$mail->IsHTML(true);
-			//$mail->IsSendmail(); // telling the class to use SendMail transport
-			$body .= '<html><head><title>GoBusGo Details</title></head>
-							<body>
-								Dear Customer,<br>
-								Your ticket has been confirmed. 
-								<table width="750" border="0" align="center" cellpadding="0" cellspacing="10">
-									<tr><td style="border:1px solid #666666;">
-										<table>
-											<tr><td>
-												<table width="500px" border="0" align="center" cellpadding="0" cellspacing="0">
-													<tr><td>Booking Id</td><td>:</td><td>'.$bookingId.'</td></tr>
-													<tr><td>From</td><td>:</td><td>'.$fromStation.'</td></tr>
-													<tr><td>To</td><td>:</td><td>'.$toStation.'</td></tr>
-													<tr><td>Date of Journey</td><td>:</td><td>'.$journeyDate.'</td></tr>
-													<tr><td>No Of Seats</td><td>:</td><td>'.$noOfSeats.'</td></tr>
-												
-												</table>
-											</td></tr>
-										</table>
-									</td></tr>
-								</table>
-							</body>
-						</html>';
-			$mail->AddReplyTo("bhuvaneswarib@embossdesignstudio.com");
-			/*$mail->AddReplyTo("bgbhuvana@gmail.com");*/
-			/*$address = "bgbhuvana@gmail.com";
-			$mail->AddAddress($email);
-			$mail->Subject    = " PFA the GoBusGo- Details";
-			$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
-			$mail->MsgHTML($body);
-			$mail->AddAttachment("fpdf/".$fetchseat['bookingId'].".pdf");     // attachment
-			
-			if(!$mail->Send()) {
-			echo "Mailer Error: " . $mail->ErrorInfo;
-			} else {
-				echo "Message sent!";
-			}*/
-
-//$sms = "http://api.cutesms.in/sms.aspx?a=submit&email=ramalakshmi@sathyaindia.com&pw=Sathya&sid=gobus&sno=9003968671&msg=gobusgotest&to=9003968671";
+echo "SUCCESS!!!!!! Message has been sent";
 
 $ch = curl_init('http://api.cutesms.in/sms.aspx?a=submit&email=ramalakshmi@sathyaindia.com&pw=Sathya&sid=gobus&sno=9003968671&msg=gobusgotest&to=9003968671');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
