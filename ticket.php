@@ -37,8 +37,9 @@ header('Accept-Ranges: bytes');
 }
 ?>
 <div class="section">
+ <div style="color:#EB001E;"> <?php echo isset($printTicket)?$printTicket:''; ?> </div>
    <div class="print">
-   <div style="color:#EB001E;"> <?php echo isset($printTicket)?$printTicket:''; ?> </div>
+  
 
     <form action="" method="post">
 		<div class="pitem"><img src="images/printhead.png" alt="" required=""></div>
