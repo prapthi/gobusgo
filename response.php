@@ -217,7 +217,7 @@ echo "Message was not sent!!!!!! <br />PHPMailer Error: " . $mail->ErrorInfo;
 else
 echo "SUCCESS!!!!!! Message has been sent";
 
-$ch = curl_init('http://api.cutesms.in/sms.aspx?a=submit&email=ramalakshmi@sathyaindia.com&pw=Sathya&sid=gobus&sno=9003968671&msg=gobusgotest&to=9003968671');
+$ch = curl_init('http://api.cutesms.in/sms.aspx?a=submit&email=ramalakshmi@sathyaindia.com&pw=Sathya&sid=gobus&sno=8870850482&msg=gobusgotest&to=8870850482');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 curl_close($ch);
