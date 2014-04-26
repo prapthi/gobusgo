@@ -43,9 +43,7 @@ if(isset($_GET['DR'])) {
 
     padding-left: 810px;
 }
-table{
-	margin:21px 11px 26px 55px;
-}
+
 .det {
     width: 215px;
 }
