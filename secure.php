@@ -6,7 +6,7 @@ include('username.php');
 
 
 <?php
-$mode= "TEST";
+$mode= "LIVE";
 $accountId= "5880";
 $amount = $_POST['TotalSeatPrice'];	
 $reference_no= "45454545";
