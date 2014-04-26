@@ -37,10 +37,10 @@ if(isset($_GET['DR'])) {
 .printts{
 	float: right;
     padding-right: 75px;
-    padding-top: 36px;
+    padding-top: 18px;
 }
 .pdf{
-	padding-top: 34px;
+
     padding-left: 810px;
 }
 
