@@ -16,7 +16,7 @@ if(isset($_GET['DR'])) {
  	 $QueryString = base64_decode($DR);
 	 $rc4->decrypt($QueryString);
 	 $QueryString = split('&',$QueryString);
-
+contactdet
 	 $response = array();
 	 foreach($QueryString as $param){
 	 	$param = split('=',$param);
@@ -361,7 +361,7 @@ echo '<a href="fpdf/'.$fetchseat['bookingId'].'.pdf" target="_blank"><img src="i
 
 	<div id="printsection">
 		<form name="contactdet" id="contactdet" action="" method="post" />
-				<table width="100%" style="margin-left:40px;">
+				<table width="95%" style="margin-left:47px;">
 						<th>CANCELLATION POLICY</th>
 						<th style="font:26px Arial,tahoma,sans-serif; padding:8px 88px;"><?php echo $provider; ?></th>
 						<tr><td>
