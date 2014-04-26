@@ -47,6 +47,12 @@ if(isset($_GET['DR'])) {
 .det {
     width: 215px;
 }
+#cont{
+width:813px;
+}
+#cont td{
+padding:10px;
+}
 
 </style>
 
