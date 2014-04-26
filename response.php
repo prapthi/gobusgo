@@ -16,7 +16,7 @@ if(isset($_GET['DR'])) {
  	 $QueryString = base64_decode($DR);
 	 $rc4->decrypt($QueryString);
 	 $QueryString = split('&',$QueryString);
-contactdet
+
 	 $response = array();
 	 foreach($QueryString as $param){
 	 	$param = split('=',$param);
@@ -37,10 +37,10 @@ contactdet
 .printts{
 	float: right;
     padding-right: 75px;
-    padding-top: 17px;
+    padding-top: 36px;
 }
 .pdf{
-
+	padding-top: 34px;
     padding-left: 810px;
 }
 
@@ -379,6 +379,7 @@ echo '<a href="fpdf/'.$fetchseat['bookingId'].'.pdf" target="_blank"><img src="i
 			<input type="hidden" name="bookingId" id="contactdet" value="<?php echo $bookingId; ?>" />
 			<table id="cont">
 				<th> PASSENGER DETAILS</th>
+
 				<tr><td>Operator PNR</td><td class="colon">:</td><td><?php echo "<div style ='font:26px Arial,tahoma,sans-serif;'>$extraSeatInfo</div>" ?></td></tr>
 				<tr><td>Contact Name</td><td class="colon">:</td><td><?php echo "<div style ='font:26px Arial,tahoma,sans-serif;'>$name</div>"; ?></td></tr>
 				<?php  
