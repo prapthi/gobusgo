@@ -53,6 +53,9 @@ width:813px;
 #cont td{
 padding:10px;
 }
+.th_cancel {
+    padding-left: 28px;
+}
 
 </style>
 
