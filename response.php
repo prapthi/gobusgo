@@ -362,7 +362,7 @@ echo '<a href="fpdf/'.$fetchseat['bookingId'].'.pdf" target="_blank"><img src="i
 	<div id="printsection">
 		<form name="contactdet" id="contactdet" action="" method="post" />
 				<table width="95%" style="margin-left:47px;">
-						<th style="margin:0 0 0 0;">CANCELLATION POLICY</th>
+						<th>CANCELLATION POLICY</th>
 						<th style="font:26px Arial,tahoma,sans-serif; padding:8px 88px;"><?php echo $provider; ?></th>
 						<tr><td>
 								<?php
