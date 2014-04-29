@@ -7,7 +7,7 @@ include('username.php');
 
 <?php
 $mode= "LIVE";
-$accountId= "5880";
+$accountId= "14384";
 $amount = $_POST['TotalSeatPrice'];	
 $reference_no= "45454545";
 $return_url= "http://www.gobusgo.in/response.php?DR={DR}";
