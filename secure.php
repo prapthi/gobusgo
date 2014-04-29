@@ -13,8 +13,9 @@ $reference_no= "45454545";
 $return_url= "http://www.gobusgo.in/response.php?DR={DR}";
 $secretKey = "4298621700f925bb4e7ea46cee128f12";
 //$hash = "ebskey"."|".$accountId."|".$amount."|".$reference_no."|".$return_url."|".$mode;
-$string = "$secretKey|$accountId|$amount|$reference_no|$return_url|$mode";
-$secure_hash = md5($hash);
+print $string = "$secretKey|$accountId|$amount|$reference_no|$return_url|$mode";
+print $secure_hash = md5($hash);
+
 
 
 $name= $_POST['contactname'];
