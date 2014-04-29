@@ -25,6 +25,17 @@ $price = trim($individualSeatPrice,",");
 
 
 ?>
+<style>
+select {
+    border: 1px solid #B5BEC5;
+    border-radius: 5px;
+    padding: 3px 5px;
+    width: 162px;
+}
+option{
+width: 162px;
+}
+</style>
 
 <link type="text/css" rel="stylesheet" href="css/lightbox.css">
 <div class="section">
