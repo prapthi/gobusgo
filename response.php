@@ -7,7 +7,7 @@ include('header.php');
 include 'PHPMailer/class.phpmailer.php'; 
 ?>
 <?php
-	 $secret_key = "ebskey";	 // Your Secret Key
+	 $secret_key = "4298621700f925bb4e7ea46cee128f12";	 // Your Secret Key
 if(isset($_GET['DR'])) {
 	 require('Rc43.php');
 	 $DR = preg_replace("/\s/","+",$_GET['DR']);
