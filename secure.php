@@ -123,7 +123,7 @@ toStation,journey_date, scheduleId, provider,bus_type,boarding_name, bookingId,n
 
 <div class="mailcon">  </div>
 <h1>Please Confirm Your Ticket</h1>
-<form  method="post" action="https://secure.ebs.in/pg/ma/sale/pay" name="frmTransaction" id="frmTransaction" onSubmit="return validate()">
+<form  method="post" action="https://secure.ebs.in/pg/ma/sale/pay" name="frmTransaction" id="frmTransaction" >
 	<input name="account_id" type="hidden" value="<? echo $accountId ?>">
 	
 	<input name="return_url" type="hidden" size="60" value="http://www.gobusgo.in/response.php?DR={DR}" />
@@ -147,12 +147,7 @@ toStation,journey_date, scheduleId, provider,bus_type,boarding_name, bookingId,n
 
 </div>
 
-<script>
-function validate(){
 
-
-}
-</script>
 <?php
 include('footer.php');
 ?>
