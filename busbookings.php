@@ -414,11 +414,6 @@ function validation(){
 		var state = document.passenger.state.value;  
 		var pincode = document.passenger.pincode.value;  
 		
-		var country = document.getElementById("country");
-		var strCountry = country.options[country.selectedIndex].value;
-		
-		
-	
 		
 		
 		for (i=0; i<total; i++){
@@ -484,9 +479,15 @@ function validation(){
 		
 		
 		
-		if(strCountry=="Select Country"){
-			alert("Please select a Country");
+		var e = document.getElementById("country");
+		var strCountry = e.options[e.selectedIndex].value;
+		
+		var strUser1 = e.options[e.selectedIndex].text;
+		if(strCountry=="Select Country")
+		{
+		alert("Please select a Country");
 		}
+		
 		
 		if(pincode==''){
 			alert('Please enter Pin Code');
